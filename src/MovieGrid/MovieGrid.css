@@ -1,0 +1,26 @@
+.movie-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 950px) {
+  .movie-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+@media only screen and (max-width: 949px) {
+  .movie-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+
+  .card-img {
+    height: 200px;
+  }
+}

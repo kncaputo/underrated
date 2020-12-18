@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import MovieGrid from '../MovieGrid/MovieGrid';
+import { fetchMovies } from '../apiCalls'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: []
+      movies: [],
+      error: ''
     }
+  }
+  
+  componentDidMount = () => {
+    fetchMovies()
+      .then(allMovies => this.setState({ movies: allMovies.movies}))
+      .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
@@ -20,6 +29,9 @@ class App extends Component {
             <p className='nav-labels'>account</p>
           </nav>
         </header>
+        {/* <MovieGrid
+          movies={this.state.movies}
+        /> */}
       </main>
     ) 
   }

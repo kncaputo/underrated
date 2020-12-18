@@ -1,4 +1,4 @@
-const fetchMovies = () => {
+export const fetchMovies = () => {
   return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
   .then((response) => {
     if(!response.ok) {
@@ -23,8 +23,8 @@ const fetchTrailers = (id) => {
   .then(response => response.json());
 }
 
-export default {
-  fetchMovies,
-  fetchSingleMovie,
-  fetchTrailers
-};
+// export {
+//   fetchMovies,
+//   fetchSingleMovie,
+//   fetchTrailers
+// };

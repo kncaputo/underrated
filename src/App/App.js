@@ -13,11 +13,11 @@ class App extends Component {
     return(
       <main>
         <header>
-          <h1>underrated</h1>
+          <h1 className='page-title'>underrated</h1>
           <nav>
-            <p>all movies</p>
-            <p>watchlist</p>
-            <p>account</p>
+            <p className='nav-labels'>all movies</p>
+            <p className='nav-labels'>watchlist</p>
+            <p className='nav-labels'>account</p>
           </nav>
         </header>
       </main>

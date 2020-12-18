@@ -29,9 +29,9 @@ class App extends Component {
             <p className='nav-labels'>account</p>
           </nav>
         </header>
-        {/* <MovieGrid
+        <MovieGrid
           movies={this.state.movies}
-        /> */}
+        />
       </main>
     ) 
   }

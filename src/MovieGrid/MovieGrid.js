@@ -1,13 +1,25 @@
-// import React from 'react';
-// import './MovieGrid.css';
+import React from 'react';
+import Poster from '../Poster/Poster';
+import './MovieGrid.css';
 
-// const MovieGrid = () => {
-//   return(
-//     <section>
+const MovieGrid = ({ movies }) => {
+  const posters = movies.map(movie => {
+    return(
+      <Poster
+        id={movie.id}
+        title={movie.title}
+        rating={movie.average_rating}
+        image={movie.poster_path}
+        key={movie.id}
+      />  
+    )
+  })
+  return(
+    <section className='movie-grid'>
+      {posters}
+    </section>
+  )
+}
 
-//     </section>
-//   )
-// }
-
-// export default MovieGrid;
+export default MovieGrid;
 

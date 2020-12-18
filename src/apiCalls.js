@@ -8,7 +8,7 @@ export const fetchMovies = () => {
   })
 }
 
-const fetchSingleMovie = (id) => {
+export const fetchSingleMovie = (id) => {
   return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${+id}`)
   .then((response) => {
     if(!response.ok) {
@@ -18,7 +18,7 @@ const fetchSingleMovie = (id) => {
   })
 }
 
-const fetchTrailers = (id) => {
+export const fetchTrailers = (id) => {
   return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${+id}/videos`)
   .then(response => response.json());
 }

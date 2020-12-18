@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieGrid from '../MovieGrid/MovieGrid';
+import MovieDetails from '../MovieDetails/MovieDetails';
 import { fetchMovies } from '../apiCalls';
 import { Route } from 'react-router-dom';
 import './App.css';
@@ -19,10 +20,6 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
-  getSingleMovie = (id) => {
-
-  }
-
   render() {
     return(
       <main>
@@ -38,17 +35,18 @@ class App extends Component {
           exact 
           path="/" 
           render={() => {
-            return 
-            <MovieGrid
-            movies={this.state.movies} 
-            />
+            return (
+              <MovieGrid
+                movies={this.state.movies}  
+              />
+            )
           }}
         />
         <Route 
           exact
           path="/movie/:id"
           render={( { match }) => {
-            return <MovieDetails id={match.params.id} key={match.params.id} />
+            return (<MovieDetails id={match.params.id} />)
           }}
         />
       </main>

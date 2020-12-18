@@ -1,6 +1,7 @@
 import React from 'react';
 import './Poster.css';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Poster = ({ id, title, rating, image }) => {
   const ratingLevel = () => {

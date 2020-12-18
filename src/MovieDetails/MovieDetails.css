@@ -1,0 +1,21 @@
+.banner-container {
+  display: flex;
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+.banner-img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+  position: relative;
+}
+
+.poster-img {
+  position: absolute;
+  width: 250px;
+  left: 6em;
+  top: 20em;
+}

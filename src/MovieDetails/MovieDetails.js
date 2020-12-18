@@ -21,7 +21,10 @@ class MovieDetails extends Component {
   render() {
     return(
       <section className="movie-details">
-        <h1>DEETZ</h1>
+        <section className="banner-container">
+          <img src={this.state.singleMovie.backdrop_path} className="banner-img"/>
+        </section>
+        <img src={this.state.singleMovie.poster_path} className="poster-img" />
         <MovieTrailers id={this.props.id} />
       </section>
     )

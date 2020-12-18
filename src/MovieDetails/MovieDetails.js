@@ -44,11 +44,13 @@ class MovieDetails extends Component {
             <img src={this.state.singleMovie.poster_path} className="poster-img" />
           </section>
           <section className="movie-main">
-            <h1>{this.state.singleMovie.title}</h1>
-            <p>{this.state.singleMovie.tagline}</p>
-            <p>{this.state.singleMovie.average_rating}</p>
-            <section className="genre-list">
-              {this.formatGenres()}
+            <section className="backdrop-overlay"> 
+              <h1 className="title">{this.state.singleMovie.title}</h1>
+              <p className="tagline">{this.state.singleMovie.tagline}</p>
+              <p className="rating">Average Rating: {this.state.singleMovie.average_rating}</p>
+              <section className="genre-list">
+                {this.formatGenres()}
+              </section>
             </section>
           </section>
         </section>

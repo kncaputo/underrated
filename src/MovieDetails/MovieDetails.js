@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchSingleMovie } from '../apiCalls'; 
+import MovieTrailers from '../MovieTrailers/MovieTrailers';
 import './MovieDetails.css';
 
 class MovieDetails extends Component {
@@ -7,7 +8,6 @@ class MovieDetails extends Component {
     super();
     this.state = {
       singleMovie: {},
-      movieTrailers: [],
       error: ''
     }
   }
@@ -22,6 +22,7 @@ class MovieDetails extends Component {
     return(
       <section className="movie-details">
         <h1>DEETZ</h1>
+        <MovieTrailers id={this.props.id} />
       </section>
     )
   }

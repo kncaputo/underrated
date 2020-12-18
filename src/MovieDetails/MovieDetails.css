@@ -13,9 +13,35 @@
   position: relative;
 }
 
+/* .movie-info {
+  position: absolute;
+  width: 250px;
+  left: 6em;
+  top: 20em;
+  display: flex;
+} */
+
 .poster-img {
   position: absolute;
   width: 250px;
   left: 6em;
   top: 20em;
+}
+
+.movie-main {
+  color: white;
+  position: absolute;
+  left: 25em;
+  top: 21em;
+}
+
+.genre {
+  border: solid white 1px;
+  border-radius: 5px;
+  padding: 0.3em;
+}
+
+.genre-list {
+  display: flex;
+  justify-content: space-around;
 }

@@ -18,7 +18,7 @@ nav {
   margin: .75em .75em 0.2em .75em;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 539px) {
   header {
     display: flex;
     flex-direction: column;

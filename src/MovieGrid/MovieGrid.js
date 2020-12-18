@@ -2,7 +2,7 @@ import React from 'react';
 import Poster from '../Poster/Poster';
 import './MovieGrid.css';
 
-const MovieGrid = ({ movies }) => {
+const MovieGrid = ({ movies, getSingleMovie }) => {
   const posters = movies.map(movie => {
     return(
       <Poster
@@ -10,6 +10,7 @@ const MovieGrid = ({ movies }) => {
         title={movie.title}
         rating={movie.average_rating}
         image={movie.poster_path}
+        getSingleMovie={getSingleMovie}
         key={movie.id}
       />  
     )

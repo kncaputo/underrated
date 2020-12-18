@@ -14,12 +14,14 @@ const Poster = ({ id, title, rating, image }) => {
 }
 
   return(
-    <section className='poster' id={id}>
-      <img className='card-img' src={image} alt={title} />
-      <p className='poster-title'>{title}</p>
-      <p className='poster-rating'>{ratingLevel()} {(rating*10).toFixed(0)}%</p>
-      <p className='poster-rating-mini'>{(rating*10).toFixed(0)}%</p>
-    </section>
+    <Link to={`/movie/${id}`}>
+      <section className='poster' id={id}>
+        <img className='card-img' src={image} alt={title} />
+        <p className='poster-title'>{title}</p>
+        <p className='poster-rating'>{ratingLevel()} {(rating*10).toFixed(0)}%</p>
+        <p className='poster-rating-mini'>{(rating*10).toFixed(0)}%</p>
+      </section>
+    </Link>
   )
 }
 

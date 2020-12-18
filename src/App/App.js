@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieGrid from '../MovieGrid/MovieGrid';
-import { fetchMovies } from '../apiCalls'
+import { fetchMovies } from '../apiCalls';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
@@ -18,6 +19,10 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
+  getSingleMovie = (id) => {
+
+  }
+
   render() {
     return(
       <main>
@@ -29,8 +34,22 @@ class App extends Component {
             <p className='nav-labels'>account</p>
           </nav>
         </header>
-        <MovieGrid
-          movies={this.state.movies}
+        <Route 
+          exact 
+          path="/" 
+          render={() => {
+            return 
+            <MovieGrid
+            movies={this.state.movies} 
+            />
+          }}
+        />
+        <Route 
+          exact
+          path="/movie/:id"
+          render={( { match }) => {
+            return <MovieDetails id={match.params.id} key={match.params.id} />
+          }}
         />
       </main>
     ) 

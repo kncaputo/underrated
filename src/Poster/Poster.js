@@ -5,8 +5,8 @@ const Poster = ({ id, title, rating, image }) => {
   return(
     <section className='poster' id={id}>
       <img className='card-img' src={image} alt={title} />
-      <h1>{title}</h1>
-      <p>{rating.toFixed(2)}</p>
+      <p className='poster-title'>{title}</p>
+      <p className='poster-rating'>Average Rating: {rating.toFixed(1)} / 10</p>
     </section>
   )
 }

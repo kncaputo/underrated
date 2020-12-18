@@ -5,22 +5,18 @@
   grid-gap: 20px;
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 950px) {
-  .movie-container {
+@media only screen and (max-width: 1024px) and (min-width: 950px) {
+  .movie-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
   }
 }
 
 @media only screen and (max-width: 949px) {
-  .movie-container {
+  .movie-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
-  }
-
-  .card-img {
-    height: 200px;
   }
 }

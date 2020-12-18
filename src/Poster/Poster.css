@@ -26,3 +26,47 @@
 .poster-rating {
   padding-left: .75em;
 }
+
+.poster-rating-mini {
+  display: none;
+  padding-left: .75em;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 950px) {
+  .poster-title {
+    height: 3.75em;
+    padding-left: .75em;
+  }
+  
+  .poster-rating {
+    padding-left: .75em;
+  }
+}
+
+@media only screen and (max-width: 949px) {
+  .poster-title {
+    height: 3.75em;
+    padding-left: .75em;
+  }
+  
+  .poster-rating {
+    padding-left: .75em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .poster-title {
+    height: 3.75em;
+    padding-left: .75em;
+    margin: 0;
+  }
+  
+  .poster-rating {
+    display: none;
+  }
+
+  .poster-rating-mini {
+    display: block;
+    margin-top: 0;
+  }
+}

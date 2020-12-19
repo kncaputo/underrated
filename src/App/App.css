@@ -28,3 +28,7 @@ nav {
     margin-left: .75em;
   }
 }
+
+#blockColorblindContent { 
+  display: none; 
+}

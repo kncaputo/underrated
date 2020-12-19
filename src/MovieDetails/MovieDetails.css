@@ -13,13 +13,13 @@
   position: relative;
 }
 
-/* .movie-info {
+.movie-info {
   position: absolute;
   width: 250px;
   left: 6em;
   top: 20em;
   display: flex;
-} */
+}
 
 .poster-img {
   position: absolute;

@@ -52,8 +52,10 @@ class MovieDetails extends Component {
                 {this.formatGenres()}
               </section>
             </section>
+              <h3>Synopsis</h3>
+              <p className="overview">{this.state.singleMovie.overview}</p>
+            </section>
           </section>
-        </section>
         <MovieTrailers id={this.props.id} />
       </section>
     )

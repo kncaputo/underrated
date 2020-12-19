@@ -44,11 +44,14 @@
 
 .genre-list {
   display: flex;
+  font-size: 0.8em;
 }
 
 .title {
   font-size: 2.8em;
   margin-bottom: 0;
+  margin-top: 1.5em;
+  padding-top: 1em;
 }
 
 .tagline {
@@ -58,5 +61,7 @@
 
 .backdrop-overlay {
   width: 40em;
+  height: 14em;
+  padding-left: 1em;
   background-image: linear-gradient(to right, #0c0c0cb0, #23212100);
 }

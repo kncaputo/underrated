@@ -58,7 +58,9 @@ class MovieDetails extends Component {
             </section>
           </section>
         </section>
-        <MovieTrailers id={this.props.id} />
+        <MovieTrailers 
+          id={this.props.id} 
+        />
       </section>
     )
   }

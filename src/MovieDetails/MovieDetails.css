@@ -19,20 +19,21 @@
   left: 6em;
   top: 20em;
   display: flex;
+  z-index: 1;
 }
 
 .poster-img {
-  position: absolute;
+  /* position: absolute; */
   width: 250px;
   left: 6em;
-  top: 20em;
+  /* top: 20em; */
 }
 
 .movie-main {
   color: white;
-  position: absolute;
-  left: 25em;
-  top: 17em;
+  /* position: absolute; */
+  /* left: 25em;
+  /* top: 17em; */
 }
 
 .genre {

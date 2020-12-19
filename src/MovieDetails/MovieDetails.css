@@ -15,7 +15,7 @@
 
 .movie-info {
   position: absolute;
-  width: 250px;
+  /* width: 250px; */
   left: 6em;
   top: 20em;
   display: flex;
@@ -23,26 +23,29 @@
 }
 
 .movie-aside {
-  margin: 1em;
+  margin: 1em 1em 1em 4em;
 }
 
 .poster-img {
   /* position: absolute; */
   width: 250px;
-  margin-bottom: 1em;
+  margin-bottom: 1.75em;
   /* left: 6em; */
   /* top: 20em; */
 }
 
 .movie-main {
   color: white;
+  margin-left: 2em;
+  margin-right: 10em;
+  width: 75%;
   /* position: absolute; */
   /* left: 25em;
   /* top: 17em; */
 }
 
 .backdrop-overlay {
-  width: 40em;
+  /* width: 40em; */
   height: 12.2em;
   margin-top: 1em;
   padding-top: 1em;
@@ -78,7 +81,7 @@
 .overview-box {
   display: flex;
   flex-direction: column;
-  max-width: 40em;
+  /* width: 60em; */
   padding-top: 1.25em;
   padding-left: 1em;
 }

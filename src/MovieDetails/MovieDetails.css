@@ -22,6 +22,10 @@
   z-index: 1;
 }
 
+.movie-aside {
+  margin: 1em;
+}
+
 .poster-img {
   /* position: absolute; */
   width: 250px;
@@ -36,6 +40,28 @@
   /* top: 17em; */
 }
 
+.backdrop-overlay {
+  width: 40em;
+  height: 12.2em;
+  margin-top: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  background-image: linear-gradient(to right, #0c0c0cb0, #23212100);
+}
+
+.title {
+  font-size: 2.8em;
+  margin-top: 5px;
+  margin-bottom: 0;
+  /* margin-top: 1.5em;
+  padding-top: 1em; */
+}
+
+.tagline {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+}
+
 .genre {
   border: solid white 1px;
   border-radius: 5px;
@@ -48,21 +74,9 @@
   font-size: 0.8em;
 }
 
-.title {
-  font-size: 2.8em;
-  margin-bottom: 0;
-  margin-top: 1.5em;
-  padding-top: 1em;
+.overview-box {
+  display: flex;
+  flex-direction: column;
 }
 
-.tagline {
-  font-size: 1.2em;
-  margin-top: 0.5em;
-}
 
-.backdrop-overlay {
-  width: 40em;
-  height: 14em;
-  padding-left: 1em;
-  background-image: linear-gradient(to right, #0c0c0cb0, #23212100);
-}

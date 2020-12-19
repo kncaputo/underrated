@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+}
+
+.page-title {
+  margin: .75em .75em 0 .75em;
+}
+
+nav {
+  display: flex;
+  align-items: flex-end;
+}
+
+.nav-labels {
+  margin: .75em .75em 0.2em .75em;
+}
+
+@media only screen and (max-width: 539px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    margin-left: .75em;
+  }
+}

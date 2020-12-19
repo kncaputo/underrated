@@ -34,6 +34,29 @@ class MovieDetails extends Component {
     }
   }
 
+  generateListItem() {
+    return (
+      <section>
+        <ListItem 
+          label='Release Date'
+          body={new Date(this.state.singleMovie.release_date).toLocaleDateString()}
+        />
+        <ListItem 
+          label='Runtime'
+          body={`${this.state.singleMovie.runtime} mins`}
+        />
+        <ListItem 
+          label='Budget'
+          body={`$${new Intl.NumberFormat('en-US').format(this.state.singleMovie.budget)}`}
+        />
+        <ListItem 
+          label='Revenue'
+          body={`$${new Intl.NumberFormat('en-US').format(this.state.singleMovie.revenue)}`}
+        />
+      </section>
+    )
+  }
+
   render() {
     return(
       <section className="movie-details">
@@ -43,23 +66,7 @@ class MovieDetails extends Component {
         <section className="movie-info">
           <section className="movie-aside">
             <img src={this.state.singleMovie.poster_path} className="poster-img" />
-            <ListItem 
-              label='Release Date'
-              body={new Date(this.state.singleMovie.release_date).toLocaleDateString()}
-            />
-            <ListItem 
-              label='Runtime'
-              body={`${this.state.singleMovie.runtime} mins`}
-            />
-            <ListItem 
-              label='Budget'
-              body={`$${new Intl.NumberFormat('en-US').format(this.state.singleMovie.budget)}`}
-            />
-            <ListItem 
-              label='Revenue'
-              body={`$${new Intl.NumberFormat('en-US').format(this.state.singleMovie.revenue)}`}
-            />
-
+            {this.generateListItem()}
           </section>
           <section className="movie-main">
             <section className="backdrop-overlay"> 
@@ -73,6 +80,9 @@ class MovieDetails extends Component {
             <section className='overview-box'>
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
+              <section className='main-list'>
+                {this.generateListItem()}
+              </section>
             </section>
             <section className='trailer-box'>
               <h3 className='trailer-header'>Trailers</h3>

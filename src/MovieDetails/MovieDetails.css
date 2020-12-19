@@ -86,6 +86,10 @@
   padding-left: 1em;
 }
 
+.main-list {
+  display: none;
+}
+
 .trailer-box {
   padding-top: 1.25em;
   padding-left: 1em;
@@ -93,4 +97,24 @@
 
 .trailer-header {
   margin-bottom: 2.25em;
+}
+
+@media only screen and (max-width: 1025px) {
+  .movie-aside {
+    display: none;
+  }
+
+  .main-list {
+    display: block;
+  }
+
+  .movie-main {
+    margin: .25em;
+  }
+
+  .movie-info {
+    justify-content: center;
+    left: 0;
+  }
+  
 }

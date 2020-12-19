@@ -1,0 +1,16 @@
+.details-box {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 1em;
+}
+
+.l-details {
+	text-align: left;
+	margin: 0;
+}
+
+.r-details {
+	text-align: right;
+	margin: 0;
+}

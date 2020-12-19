@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchSingleMovie } from '../apiCalls'; 
+import ListItem from '../ListItem/ListItem';
 import MovieTrailers from '../MovieTrailers/MovieTrailers';
 import './MovieDetails.css';
 
@@ -42,6 +43,23 @@ class MovieDetails extends Component {
         <section className="movie-info">
           <section className="movie-aside">
             <img src={this.state.singleMovie.poster_path} className="poster-img" />
+            <ListItem 
+              label='Release Date'
+              body={new Date(this.state.singleMovie.release_date).toLocaleDateString()}
+            />
+            <ListItem 
+              label='Runtime'
+              body={`${this.state.singleMovie.runtime} mins`}
+            />
+            <ListItem 
+              label='Budget'
+              body={`$${new Intl.NumberFormat('en-US').format(this.state.singleMovie.budget)}`}
+            />
+            <ListItem 
+              label='Revenue'
+              body={`$${new Intl.NumberFormat('en-US').format(this.state.singleMovie.revenue)}`}
+            />
+
           </section>
           <section className="movie-main">
             <section className="backdrop-overlay"> 

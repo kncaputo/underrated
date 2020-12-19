@@ -5,6 +5,10 @@ header {
   color: white;
 }
 
+body {
+  color: white;
+}
+
 .page-title {
   margin: .75em .75em 0 .75em;
 }

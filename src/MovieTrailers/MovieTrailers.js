@@ -25,7 +25,7 @@ class MovieTrailers extends Component {
       return (
         <ReactPlayer 
           key={trailer.id}
-          url={`https://www.youtube.com/embed/${trailer.key}`}
+          url={`https://www.youtube.com/watch?v=${trailer.key}`}
         />  
       )  
     })
@@ -35,7 +35,7 @@ class MovieTrailers extends Component {
   render() {
     return(
       <section className="trailers">
-        <Carousel width={650}>
+        <Carousel>
           {this.formatTrailers()}
         </Carousel>  
       </section>

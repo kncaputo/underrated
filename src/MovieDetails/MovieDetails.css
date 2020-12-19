@@ -77,6 +77,16 @@
 .overview-box {
   display: flex;
   flex-direction: column;
+  max-width: 40em;
+  padding-top: 1.25em;
+  padding-left: 1em;
 }
 
+.trailer-box {
+  padding-top: 1.25em;
+  padding-left: 1em;
+}
 
+.trailer-header {
+  margin-bottom: 2.25em;
+}

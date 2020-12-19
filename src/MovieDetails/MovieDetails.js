@@ -56,11 +56,14 @@ class MovieDetails extends Component {
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
             </section>
+            <section className='trailer-box'>
+              <h3 className='trailer-header'>Trailers</h3>
+              <MovieTrailers 
+                id={this.props.id} 
+              />
+            </section>
           </section>
         </section>
-        <MovieTrailers 
-          id={this.props.id} 
-        />
       </section>
     )
   }

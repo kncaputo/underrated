@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import { fetchSingleMovie } from '../apiCalls'; 
-import MovieTrailers from '../MovieTrailers/MovieTrailers';
-import './MovieDetails.css';
+import React, { Component } from "react";
+import { fetchSingleMovie } from "../apiCalls"; 
+import ListItem from "../ListItem/ListItem";
+import MovieTrailers from "../MovieTrailers/MovieTrailers";
+import "./MovieDetails.css";
 
 class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
       singleMovie: {},
-      error: ''
+      error: ""
     }
   }
   
@@ -33,6 +34,29 @@ class MovieDetails extends Component {
     }
   }
 
+  generateListItem() {
+    return (
+      <section>
+        <ListItem 
+          label="Release Date"
+          body={new Date(this.state.singleMovie.release_date).toLocaleDateString()}
+        />
+        <ListItem 
+          label="Runtime"
+          body={`${this.state.singleMovie.runtime} mins`}
+        />
+        <ListItem 
+          label="Budget"
+          body={`$${new Intl.NumberFormat("en-US").format(this.state.singleMovie.budget)}`}
+        />
+        <ListItem 
+          label="Revenue"
+          body={`$${new Intl.NumberFormat("en-US").format(this.state.singleMovie.revenue)}`}
+        />
+      </section>
+    )
+  }
+
   render() {
     return(
       <section className="movie-details">
@@ -42,21 +66,37 @@ class MovieDetails extends Component {
         <section className="movie-info">
           <section className="movie-aside">
             <img src={this.state.singleMovie.poster_path} className="poster-img" />
+            {this.generateListItem()}
           </section>
           <section className="movie-main">
             <section className="backdrop-overlay"> 
-              <h1 className="title">{this.state.singleMovie.title}</h1>
-              <p className="tagline">{this.state.singleMovie.tagline}</p>
-              <p className="rating">Average Rating: {this.state.singleMovie.average_rating}</p>
-              <section className="genre-list">
-                {this.formatGenres()}
+              <section className="responsive-poster">
+                <img src={this.state.singleMovie.poster_path} className="poster-img" />
               </section>
+              <section className="main-header-details">
+                <h1 className="title">{this.state.singleMovie.title}</h1>
+                <p className="tagline">{this.state.singleMovie.tagline}</p>
+                <p className="rating">Average Rating: {this.state.singleMovie.average_rating}</p>
+                <section className="genre-list">
+                  {this.formatGenres()}
+                </section>
+              </section>  
             </section>
+            <section className="overview-box">
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
+              <section className="responsive-list">
+                {this.generateListItem()}
+              </section>
+            </section>
+            <section className="trailer-box">
+              <h3 className="trailer-header">Trailers</h3>
+              <MovieTrailers 
+                id={this.props.id} 
+              />
             </section>
           </section>
-        <MovieTrailers id={this.props.id} />
+        </section>
       </section>
     )
   }

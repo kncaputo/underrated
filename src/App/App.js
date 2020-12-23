@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import Login from '../Login/Login';
 import { fetchMovies } from '../apiCalls';
 import { Route } from 'react-router-dom';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
@@ -10,7 +14,9 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      error: ''
+      error: '',
+      currentUser: '',
+      currentUserRatings: []
     }
   }
   
@@ -28,7 +34,11 @@ class App extends Component {
           <nav>
             <p className='nav-labels'>all movies</p>
             <p className='nav-labels'>watchlist</p>
-            <p className='nav-labels'>account</p>
+            {/* <p className='nav-labels'>account</p> */}
+            <DropdownButton className='nav-labels' title='account'>
+              <Dropdown.Item eventKey="1">Hello</Dropdown.Item>
+              <Dropdown.Item eventKey="2">Goodbye</Dropdown.Item>
+            </DropdownButton>
           </nav>
         </header>
         <Route 

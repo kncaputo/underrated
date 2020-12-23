@@ -15,7 +15,6 @@
 
 .movie-info {
   position: absolute;
-  /* width: 250px; */
   left: 6em;
   top: 20em;
   display: flex;
@@ -26,11 +25,8 @@
 }
 
 .poster-img {
-  /* position: absolute; */
   width: 250px;
   margin-bottom: 1.75em;
-  /* left: 6em; */
-  /* top: 20em; */
 }
 
 .movie-main {
@@ -38,14 +34,10 @@
   margin-left: 2em;
   margin-right: 10em;
   width: 75%;
-  /* position: absolute; */
-  /* left: 25em;
-  /* top: 17em; */
 }
 
 .backdrop-overlay {
-  /* width: 40em; */
-  height: 12.2em;
+  height: 14.3em;
   margin-top: 1em;
   padding-top: 1em;
   padding-left: 1em;

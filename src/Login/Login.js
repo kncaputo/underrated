@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
       email: '',
+      password: '',
     }
   }
 
   render() {
     return(
-      <h1>HELLO THERE</h1>
+      <section>
+        <Dropdown.Item eventKey="1">
+          <input
+            type="text"
+            placeholder="Email"
+            value={this.state.email}
+          />
+        </Dropdown.Item>
+        <Dropdown.Item eventKey="2">
+        <input
+            type="text"
+            placeholder="Password"
+            value={this.state.password}
+          />
+        </Dropdown.Item>
+      </section>
     )
   }
 }

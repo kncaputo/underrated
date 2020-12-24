@@ -12,23 +12,33 @@ class Login extends Component {
     }
   }
 
+  handleClick(event) {
+    event.preventDefault();
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
   render() {
     return(
       <section>
-        <Dropdown.Item eventKey="1">
           <input
+            name="email"
             type="text"
             placeholder="Email"
             value={this.state.email}
+            onClick={(event) => this.handleClick(event)}
+            onChange={(event) => this.handleChange(event)}
           />
-        </Dropdown.Item>
-        <Dropdown.Item eventKey="2">
         <input
-            type="text"
+            name="password"
+            type="password"
             placeholder="Password"
             value={this.state.password}
+            onClick={(event) => this.handleClick(event)}
+            onChange={(event) => this.handleChange(event)}
           />
-        </Dropdown.Item>
       </section>
     )
   }

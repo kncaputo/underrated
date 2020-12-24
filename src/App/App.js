@@ -32,7 +32,6 @@ class App extends Component {
           <nav>
             <p className='nav-labels'>all movies</p>
             <p className='nav-labels'>watchlist</p>
-            {/* <p className='nav-labels'>account</p> */}
             <DropdownButton className='nav-labels' title='account'>
               <Login />
             </DropdownButton>

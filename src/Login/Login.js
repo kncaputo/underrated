@@ -23,22 +23,23 @@ class Login extends Component {
   render() {
     return(
       <section>
-          <input
-            name="email"
-            type="text"
-            placeholder="Email"
-            value={this.state.email}
-            onClick={(event) => this.handleClick(event)}
-            onChange={(event) => this.handleChange(event)}
-          />
         <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-            onClick={(event) => this.handleClick(event)}
-            onChange={(event) => this.handleChange(event)}
-          />
+          name="email"
+          type="text"
+          placeholder="Email"
+          value={this.state.email}
+          onClick={(event) => this.handleClick(event)}
+          onChange={(event) => this.handleChange(event)}
+        />
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={this.state.password}
+          onClick={(event) => this.handleClick(event)}
+          onChange={(event) => this.handleChange(event)}
+        />
+        <button className="submit-button">SUBMIT</button>
       </section>
     )
   }

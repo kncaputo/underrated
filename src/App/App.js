@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { fetchMovies, postLoginCredentials } from '../apiCalls';
+import { fetchMovies, fetchUserRatings, postLoginCredentials } from '../apiCalls';
 import { Route } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.css';
@@ -20,8 +20,8 @@ class App extends Component {
   
   componentDidMount = () => {
     fetchMovies()
-      .then(allMovies => this.setState({ movies: allMovies.movies}))
-      .catch(error => this.setState({ error: error.message }))
+    .then(allMovies => this.setState({ movies: allMovies.movies}))
+    .catch(error => this.setState({ error: error.message }))
   }
 
   validateLogin = (loginEmail, loginPassword) => {
@@ -31,8 +31,15 @@ class App extends Component {
     }
 
     postLoginCredentials(credentials)
-      .then(user => this.setState({ currentUser: user.user }))
-      .catch(error => this.setState({ error: error.message}))
+    .then(user => this.setState({ currentUser: user.user }))
+    .then(() => this.getUserRatings())
+    .catch(error => this.setState({ error: error.message}))
+  }
+
+  getUserRatings = () => {
+    fetchUserRatings(this.state.currentUser.id)
+    .then(ratings => this.setState({ currentUserRatings: ratings.ratings }))
+    .catch(error => this.setState({ error: error.message}))  
   }
 
   clearError = () => {

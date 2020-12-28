@@ -40,3 +40,13 @@ export const postLoginCredentials = (loginCredentials) => {
       return response.json()
     })
 }
+
+export const fetchUserRatings = (id) => {
+  return fetch(`${endpoint}/users/${+id}/ratings`)
+  .then((response) => {
+    if (!response.ok) {
+      throw Error('Sorry! We couldn\'t retrieve your ratings.')
+    }
+    return response.json()
+  })
+}

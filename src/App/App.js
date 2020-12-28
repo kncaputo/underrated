@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      currentUser: {},
+      currentUser: null,
       currentUserRatings: []
     }
   }
@@ -50,11 +50,19 @@ class App extends Component {
             <DropdownButton 
               className='nav-labels' 
               title='account'>
-                <Login 
-                  validateLogin={this.validateLogin} 
-                  error={this.state.error} 
-                  clearError={this.clearError}
-                />
+                {!this.state.currentUser &&
+                  <Login 
+                    validateLogin={this.validateLogin} 
+                    error={this.state.error} 
+                    clearError={this.clearError}
+                  />
+                }
+                {this.state.currentUser &&
+                  <section>
+                    <p>Hello, {this.state.currentUser.name}</p>
+                    <button>Sign Out</button>
+                  </section>     
+                }
             </DropdownButton>
           </nav>
         </header>

@@ -60,15 +60,14 @@ class Login extends Component {
           onChange={(event) => this.handleChange(event)}
         />
         {this.determineError()}
-        <button className="submit-button" onClick={this.submitLogin}>SUBMIT</button>
+        <button 
+          className="submit-button" 
+          onClick={this.submitLogin}>
+          SUBMIT
+        </button>
       </section>
     )
   }
 }
 
 export default Login;
-
-
-//form that accepts the sign in
-//if sign in is successful, make the request
-//if sign in is unsucessful, post message, prompt to make an account

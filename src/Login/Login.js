@@ -8,7 +8,7 @@ class Login extends Component {
     super();
     this.state = {
       email: '',
-      password: '',
+      password: ''
     }
   }
 
@@ -17,7 +17,11 @@ class Login extends Component {
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  submitLogin = () => {
+    this.props.validateLogin(this.state.email, this.state.password);
   }
 
   render() {
@@ -39,7 +43,7 @@ class Login extends Component {
           onClick={(event) => this.handleClick(event)}
           onChange={(event) => this.handleChange(event)}
         />
-        <button className="submit-button">SUBMIT</button>
+        <button className="submit-button" onClick={this.submitLogin}>SUBMIT</button>
       </section>
     )
   }

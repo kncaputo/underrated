@@ -35,7 +35,7 @@ export const postLoginCredentials = (loginCredentials) => {
   })
     .then((response) => {
       if (!response.ok) {
-        throw Error('Sorry! We\'ve encountered an error')
+        throw Error('Username and/or password is incorrect. Please try again.')
       }
       return response.json()
     })

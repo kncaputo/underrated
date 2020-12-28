@@ -32,6 +32,11 @@ class Login extends Component {
 
   submitLogin = () => {
     this.props.validateLogin(this.state.email, this.state.password);
+    this.clearInputs()
+  }
+
+  clearInputs = () => {
+    this.setState({ email: '', password: '' })
   }
 
   render() {

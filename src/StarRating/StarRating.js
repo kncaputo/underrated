@@ -5,7 +5,7 @@ class StarRating extends Component {
   constructor() {
     super();
     this.state = {
-      rating: 2
+      rating: 0
     }
   }
 
@@ -15,13 +15,17 @@ class StarRating extends Component {
 
   render() {
     return(
-      <ReactStars
+      <section>
+        <ReactStars
         value={this.state.rating}
+        isHalf={true}
         count={10}
         onChange={this.handleStarChange}
         size={24}
         activeColor="#ffd700"
       />
+      Your Rating is: {this.state.rating}
+      </section>
     )
   }
 }

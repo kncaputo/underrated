@@ -11,7 +11,7 @@ class MovieDetails extends Component {
     this.state = {
       singleMovie: {},
       error: "",
-      currentUserRatings: []
+      currentUserRating: 0
     }
   }
   
@@ -24,7 +24,12 @@ class MovieDetails extends Component {
   componentDidUpdate(prevProps) {
     if(prevProps.currentUser !== this.props.currentUser) {
       fetchUserRatings(this.props.currentUser.id)
-      .then(ratings => this.setState({ currentUserRatings: ratings.ratings }))
+      .then(ratings => {
+        const userRating = ratings.ratings.find(rating => {
+          return rating.movie_id === this.state.singleMovie.id
+        })
+        this.setState({ currentUserRating: userRating.rating})
+      })
       .catch(error => this.setState({ error: error.message}))  
     }
   }
@@ -95,6 +100,7 @@ class MovieDetails extends Component {
             <section className="overview-box">
               <section className="rating-watchlist">
                 <StarRating 
+                  currentUserRating={this.state.currentUserRating}
                   canEdit={true} 
                 />
                 <button>Add to Watchlist</button>

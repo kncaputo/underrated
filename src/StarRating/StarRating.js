@@ -9,6 +9,12 @@ class StarRating extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.currentUserRating !== prevProps.currentUserRating) {
+      this.setState({ rating: this.props.currentUserRating })
+    }
+  }
+  
   handleStarChange = (newRating) => {
     this.setState({ rating: newRating })
   }

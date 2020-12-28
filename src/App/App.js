@@ -35,6 +35,10 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message}))
   }
 
+  clearError = () => {
+    this.setState({ error: '' })
+  }
+
   render() {
     return(
       <main>
@@ -43,8 +47,14 @@ class App extends Component {
           <nav>
             <p className='nav-labels'>all movies</p>
             <p className='nav-labels'>watchlist</p>
-            <DropdownButton className='nav-labels' title='account'>
-              <Login validateLogin={this.validateLogin} error={this.state.error} />
+            <DropdownButton 
+              className='nav-labels' 
+              title='account'>
+                <Login 
+                  validateLogin={this.validateLogin} 
+                  error={this.state.error} 
+                  clearError={this.clearError}
+                />
             </DropdownButton>
           </nav>
         </header>

@@ -13,11 +13,12 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    event.preventDefault();
+    event.preventDefault()
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.props.clearError()
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   determineError = () => {

@@ -53,10 +53,7 @@
 
 .title {
   font-size: 2.8em;
-  margin-top: 5px;
-  margin-bottom: 0;
-  /* margin-top: 1.5em;
-  padding-top: 1em; */
+  margin: 0;
 }
 
 .tagline {
@@ -79,7 +76,6 @@
 .overview-box {
   display: flex;
   flex-direction: column;
-  /* width: 60em; */
   padding-top: 1.25em;
   padding-left: 1em;
 }
@@ -95,6 +91,11 @@
 
 .trailer-header {
   margin-bottom: 2.25em;
+}
+
+.rating-star {
+  margin-top: 0;
+  font-size: 2.25em;
 }
 
 @media only screen and (max-width: 1025px) and (min-width: 768px) {

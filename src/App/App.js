@@ -44,7 +44,7 @@ class App extends Component {
             <p className='nav-labels'>all movies</p>
             <p className='nav-labels'>watchlist</p>
             <DropdownButton className='nav-labels' title='account'>
-              <Login validateLogin={this.validateLogin} />
+              <Login validateLogin={this.validateLogin} error={this.state.error} />
             </DropdownButton>
           </nav>
         </header>

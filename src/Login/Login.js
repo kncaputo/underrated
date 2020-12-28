@@ -20,6 +20,16 @@ class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  determineError = () => {
+    if (this.props.error) {
+      return (
+        <section>
+          <p>{this.props.error}</p>
+        </section>
+      )
+    }
+  }
+
   submitLogin = () => {
     this.props.validateLogin(this.state.email, this.state.password);
   }
@@ -43,6 +53,7 @@ class Login extends Component {
           onClick={(event) => this.handleClick(event)}
           onChange={(event) => this.handleChange(event)}
         />
+        {this.determineError()}
         <button className="submit-button" onClick={this.submitLogin}>SUBMIT</button>
       </section>
     )

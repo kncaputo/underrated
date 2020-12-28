@@ -18,16 +18,15 @@ class MovieDetails extends Component {
   componentDidMount() {
     fetchSingleMovie(this.props.id)
     .then(singleMovie => this.setState({ singleMovie: singleMovie.movie }))
-    .then(() => { if(this.props.currentUser) {
-      this.getUserRatings()
-    }})
     .catch(error => this.setState({ error: error.message}))
   }
 
-  getUserRatings = () => {
-    fetchUserRatings(this.props.currentUser.id)
-    .then(ratings => this.setState({ currentUserRatings: ratings.ratings }))
-    .catch(error => this.setState({ error: error.message}))  
+  componentDidUpdate(prevProps) {
+    if(prevProps.currentUser !== this.props.currentUser) {
+      fetchUserRatings(this.props.currentUser.id)
+      .then(ratings => this.setState({ currentUserRatings: ratings.ratings }))
+      .catch(error => this.setState({ error: error.message}))  
+    }
   }
 
   formatGenres = () => {

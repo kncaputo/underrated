@@ -39,6 +39,10 @@ class App extends Component {
     this.setState({ error: '' })
   }
 
+  signOut = () => {
+    this.setState({ currentUser: null })
+  }
+
   render() {
     return(
       <main>
@@ -60,7 +64,7 @@ class App extends Component {
                 {this.state.currentUser &&
                   <section>
                     <p>Hello, {this.state.currentUser.name}</p>
-                    <button>Sign Out</button>
+                    <button onClick={this.signOut}>Sign Out</button>
                   </section>     
                 }
             </DropdownButton>

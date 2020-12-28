@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { fetchSingleMovie } from "../apiCalls"; 
 import ListItem from "../ListItem/ListItem";
 import MovieTrailers from "../MovieTrailers/MovieTrailers";
+import StarRating from "../StarRating/StarRating";
 import "./MovieDetails.css";
 
 class MovieDetails extends Component {
@@ -83,6 +84,7 @@ class MovieDetails extends Component {
               </section>  
             </section>
             <section className="overview-box">
+              <StarRating />
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
               <section className="responsive-list">

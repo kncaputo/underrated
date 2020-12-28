@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchSingleMovie } from "../apiCalls"; 
+import { fetchSingleMovie, fetchUserRatings } from "../apiCalls"; 
 import ListItem from "../ListItem/ListItem";
 import MovieTrailers from "../MovieTrailers/MovieTrailers";
 import StarRating from "../StarRating/StarRating";
@@ -10,14 +10,24 @@ class MovieDetails extends Component {
     super();
     this.state = {
       singleMovie: {},
-      error: ""
+      error: "",
+      currentUserRatings: []
     }
   }
   
   componentDidMount() {
     fetchSingleMovie(this.props.id)
     .then(singleMovie => this.setState({ singleMovie: singleMovie.movie }))
+    .then(() => { if(this.props.currentUser) {
+      this.getUserRatings()
+    }})
     .catch(error => this.setState({ error: error.message}))
+  }
+
+  getUserRatings = () => {
+    fetchUserRatings(this.props.currentUser.id)
+    .then(ratings => this.setState({ currentUserRatings: ratings.ratings }))
+    .catch(error => this.setState({ error: error.message}))  
   }
 
   formatGenres = () => {
@@ -84,9 +94,12 @@ class MovieDetails extends Component {
               </section>  
             </section>
             <section className="overview-box">
-              <StarRating 
-                canEdit={true} 
-              />
+              <section className="rating-watchlist">
+                <StarRating 
+                  canEdit={true} 
+                />
+                <button>Add to Watchlist</button>
+              </section>
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
               <section className="responsive-list">

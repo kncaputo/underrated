@@ -16,6 +16,7 @@ class StarRating extends Component {
   render() {
     return(
       <section>
+        Your Rating is: {this.state.rating}
         <ReactStars
           key={Math.random()}
           value={this.state.rating}
@@ -26,7 +27,6 @@ class StarRating extends Component {
           size={24}
           activeColor="#ffd700"
         />
-      Your Rating is: {this.state.rating}
       </section>
     )
   }

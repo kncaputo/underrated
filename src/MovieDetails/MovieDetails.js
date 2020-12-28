@@ -96,7 +96,9 @@ class MovieDetails extends Component {
               <section className="main-header-details">
                 <h1 className="title">{this.state.singleMovie.title}</h1>
                 <p className="tagline">{this.state.singleMovie.tagline}</p>
-                <p className="rating"><span className="rating-star">☆{this.state.singleMovie.average_rating}</span>/10</p>
+                <p className="rating">
+                  <span className="rating-star">☆ {this.state.singleMovie.average_rating}</span>/10
+                </p>
                 <section className="genre-list">
                   {this.formatGenres()}
                 </section>

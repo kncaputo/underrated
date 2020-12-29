@@ -11,7 +11,8 @@ class MovieDetails extends Component {
     this.state = {
       singleMovie: {},
       error: "",
-      currentUserRating: 0
+      currentUserRating: 0,
+      onWatchlist: false
     }
   }
   
@@ -77,6 +78,14 @@ class MovieDetails extends Component {
     )
   }
 
+  toggleWatchlist = () => {
+    if (this.state.onWatchlist === false) {
+      this.setState({ onWatchlist: true })
+    } else {
+      this.setState({ onWatchlist: false})
+    }
+  }
+
   render() {
     return(
       <section className="movie-details">
@@ -110,7 +119,8 @@ class MovieDetails extends Component {
                   currentUserRating={this.state.currentUserRating}
                   canEdit={true} 
                 />
-                <button className="add-watchlist-button">+ Add to Watchlist</button>
+                {this.state.onWatchlist === true && <button className="on-watchlist-button" onClick={() => this.toggleWatchlist()}>On Watchlist</button>}
+                {this.state.onWatchlist === false && <button className="add-watchlist-button" onClick={() => this.toggleWatchlist()}>+ Add to Watchlist</button>}
               </section>
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>

@@ -110,7 +110,7 @@ class MovieDetails extends Component {
                   currentUserRating={this.state.currentUserRating}
                   canEdit={true} 
                 />
-                <button>Add to Watchlist</button>
+                <button className="add-watchlist-button">+ Add to Watchlist</button>
               </section>
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>

@@ -98,6 +98,27 @@
   font-size: 2.25em;
 }
 
+.rating-watchlist {
+  display: flex;
+}
+
+.add-watchlist-button {
+  height: 2em;
+  margin: 2.3em 0em 0em 2em;
+  border: solid white 0.1em;
+  border-radius: 1em;
+  outline: none;
+  color: white;
+  background-color: black;
+  font-size: 0.8em;
+}
+
+.add-watchlist-button:hover {
+  cursor: pointer;
+  color: black;
+  background-color: white;
+}
+
 @media only screen and (max-width: 1025px) and (min-width: 768px) {
   .movie-aside {
     display: none;

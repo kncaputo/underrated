@@ -11,7 +11,7 @@ class MovieDetails extends Component {
     this.state = {
       singleMovie: {},
       error: "",
-      currentUserRating: {},
+      currentUserRating: null,
       onWatchlist: false
     }
   }
@@ -88,21 +88,28 @@ class MovieDetails extends Component {
   }
 
   setStarRating = (rating) => {
-    const userId = this.props.currentUser.id
-    const ratingId = this.state.currentUserRating.id
-
-    const newRating = {
-      movie_id: this.state.singleMovie.id,
-      rating: +rating
-    }
-
-    if (this.props.currentUser && this.state.currentUserRating === {}) {
+    let ratingId;
+    let userId;
+    let newRating;
+    
+    
+    if (this.props.currentUser && this.state.currentUserRating) {
+      ratingId = this.state.currentUserRating.id
+      userId = this.props.currentUser.id
+      
       deleteUserRating(userId, ratingId)
       .then(response => console.log(response))
       .catch(error => this.setState({ error: error.message }))
+      
     } else if (this.props.currentUser) {
+      userId = this.props.currentUser.id
+      newRating = {
+        movie_id: this.state.singleMovie.id,
+        rating: +rating
+      }
+      
       postUserRating(userId, newRating)
-      .then(rating => this.setState({ rating: rating.rating.rating}))
+      .then(rating => this.setState({ currentUserRating: rating.rating}))
       .catch(error => this.setState({ error: error.message }))
     }
   }
@@ -138,11 +145,20 @@ class MovieDetails extends Component {
             </section>
             <section className="overview-box">
               <section className="rating-watchlist">
-                <StarRating 
-                  currentUserRating={this.state.currentUserRating.rating}
-                  canEdit={true} 
-                  setStarRating={this.setStarRating}
-                />
+                {!this.state.currentUserRating &&
+                  <StarRating 
+                    currentUserRating={0}
+                    canEdit={true} 
+                    setStarRating={this.setStarRating}
+                  />
+                }
+                {this.state.currentUserRating && 
+                  <StarRating 
+                    currentUserRating={this.state.currentUserRating.rating}
+                    canEdit={true} 
+                    setStarRating={this.setStarRating}
+                  />
+                }
                 {this.state.onWatchlist === true && <button className="on-watchlist-button" onClick={() => this.toggleWatchlist()}>On Watchlist</button>}
                 {this.state.onWatchlist === false && <button className="add-watchlist-button" onClick={() => this.toggleWatchlist()}>+ Add to Watchlist</button>}
               </section>

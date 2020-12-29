@@ -61,8 +61,7 @@ export const postUserRating = (id, rating) => {
   })
   .then((response) => {
     if (!response.ok) {
-      throw Error
-      // throw Error('Sorry! We couldn\'t post your rating.')
+      throw Error('Sorry! We couldn\'t post your rating.')
     }
     return response.json()
   })
@@ -73,12 +72,11 @@ export const deleteUserRating = (id, ratingId) => {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
   })
   .then((response) => {
     if (!response.ok) {
-      throw Error
-      // throw Error('Sorry! We couldn\'t retrieve your rating.')
+      throw Error('Sorry! We couldn\'t retrieve your rating.')
     }
     return response.json()
   })

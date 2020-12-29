@@ -45,7 +45,35 @@ export const fetchUserRatings = (id) => {
   return fetch(`${endpoint}/users/${+id}/ratings`)
   .then((response) => {
     if (!response.ok) {
-      throw Error('Sorry! We couldn\'t retrieve your ratings.')
+      throw Error('Sorry! We couldn\'t retrieve your rating.')
+    }
+    return response.json()
+  })
+}
+
+export const postUserRating = (id, rating) => {
+  return fetch(`${endpoint}/users/${id}/ratings`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }, 
+    body: JSON.stringify(rating)
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw Error
+      // throw Error('Sorry! We couldn\'t post your rating.')
+    }
+    return response.json()
+  })
+}
+
+export const deleteUserRating = (id, ratingId) => {
+  return fetch(`${endpoint}/users/${+id}/ratings/${+ratingId}`)
+  .then((response) => {
+    if (!response.ok) {
+      throw Error
+      // throw Error('Sorry! We couldn\'t retrieve your rating.')
     }
     return response.json()
   })

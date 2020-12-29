@@ -69,7 +69,12 @@ export const postUserRating = (id, rating) => {
 }
 
 export const deleteUserRating = (id, ratingId) => {
-  return fetch(`${endpoint}/users/${+id}/ratings/${+ratingId}`)
+  return fetch(`${endpoint}/users/${+id}/ratings/${+ratingId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
   .then((response) => {
     if (!response.ok) {
       throw Error

@@ -96,9 +96,8 @@ class MovieDetails extends Component {
       rating: +rating
     }
 
-    debugger
     deleteUserRating(userId, ratingId)
-    // .then(() => this.setState({ currentUserRating: { rating: 0, ...currentUserRating }}))
+    .then(response => console.log(response))
     .catch(error => this.setState({ error: error.message }))
 
     // postUserRating(userId, newRating)

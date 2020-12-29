@@ -96,14 +96,18 @@ class MovieDetails extends Component {
       rating: +rating
     }
 
-    deleteUserRating(userId, ratingId)
-    .then(response => console.log(response))
-    .catch(error => this.setState({ error: error.message }))
-
-    // postUserRating(userId, newRating)
-    // .then(rating => this.setState({ rating: rating.rating.rating}))
-    // .catch(error => this.setState({ error: error.message }))
+    if (this.props.currentUser && this.state.currentUserRating === {}) {
+      deleteUserRating(userId, ratingId)
+      .then(response => console.log(response))
+      .catch(error => this.setState({ error: error.message }))
+    } else if (this.props.currentUser) {
+      postUserRating(userId, newRating)
+      .then(rating => this.setState({ rating: rating.rating.rating}))
+      .catch(error => this.setState({ error: error.message }))
+    }
   }
+
+
 
   render() {
     return(

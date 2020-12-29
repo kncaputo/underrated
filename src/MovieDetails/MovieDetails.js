@@ -30,15 +30,17 @@ class MovieDetails extends Component {
   }
 
   getUserRatings() {
-    this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
-    fetchUserRatings(this.props.currentUser.id)
-    .then(ratings => {
-      const userRating = ratings.ratings.find(rating => {
-        return rating.movie_id === this.state.singleMovie.id
+    if (this.props.currentUser) {
+      this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
+      fetchUserRatings(this.props.currentUser.id)
+      .then(ratings => {
+        const userRating = ratings.ratings.find(rating => {
+          return rating.movie_id === this.state.singleMovie.id
+        })
+        this.setState({ currentUserRating: userRating })
       })
-      this.setState({ currentUserRating: userRating })
-    })
-    .catch(error => this.setState({ error: error.message}))  
+      .catch(error => this.setState({ error: error.message}))  
+    }
   }
 
   formatGenres = () => {

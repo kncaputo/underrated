@@ -30,7 +30,7 @@ class MovieDetails extends Component {
   }
 
   getUserRatings() {
-    this.setState({ ...this.state.singleMovie, rating: this.state.singleMovie.average_rating.toFixed(1)})
+    this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
     fetchUserRatings(this.props.currentUser.id)
     .then(ratings => {
       const userRating = ratings.ratings.find(rating => {
@@ -107,7 +107,7 @@ class MovieDetails extends Component {
                 <h1 className="title">{this.state.singleMovie.title}</h1>
                 <p className="tagline">{this.state.singleMovie.tagline}</p>
                 <p className="rating">
-                  <span className="rating-star">☆ {this.state.rating}</span>/10
+                  <span className="rating-star">☆ {this.state.formattedRating}</span>/10
                 </p>
                 <section className="genre-list">
                   {this.formatGenres()}

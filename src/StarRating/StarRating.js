@@ -32,7 +32,6 @@ class StarRating extends Component {
           key={Math.random()}
           value={this.state.rating}
           edit={this.props.canEdit}
-          isHalf={true}
           count={10}
           onChange={this.handleStarChange}
           size={24}

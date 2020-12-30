@@ -25,7 +25,7 @@ class MovieDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if(prevProps.currentUser !== this.props.currentUser) {
-      this.setState({ currentUserRating: null })
+      this.setState({ currentUserRating: null, error: "" })
       this.getUserRatings()
     }
   }
@@ -33,15 +33,21 @@ class MovieDetails extends Component {
   getUserRatings() {
     if (this.props.currentUser) {
       this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
-      fetchUserRatings(this.props.currentUser.id)
-      .then(ratings => {
-        const userRating = ratings.ratings.find(rating => {
-          return rating.movie_id === this.state.singleMovie.id
-        })
-        this.setState({ currentUserRating: userRating })
-      })
-      .catch(error => this.setState({ error: error.message}))  
+      this.updateUserRating()
     }
+  }
+
+  updateUserRating = () => {
+    fetchUserRatings(this.props.currentUser.id)
+    .then(ratings => { 
+      console.log('allratings', ratings)
+      const userRating = ratings.ratings.find(rating => {
+        return rating.movie_id === this.state.singleMovie.id
+      })
+      console.log('userRating', userRating)
+      this.setState({ currentUserRating: userRating })
+    })
+    .catch(error => this.setState({ error: error.message}))  
   }
 
   formatGenres = () => {
@@ -93,31 +99,36 @@ class MovieDetails extends Component {
   setStarRating = (rating) => {
     let ratingId;
     let userId;
-    let newRating;
-    
     
     if (this.props.currentUser && this.state.currentUserRating) {
       ratingId = this.state.currentUserRating.id
       userId = this.props.currentUser.id
-      
+
       deleteUserRating(userId, ratingId)
-      .then(response => console.log(response))
+      .then(response => console.log('delete response', response))
       .catch(error => this.setState({ error: error.message }))
-      
+
+      this.createNewRating(userId, rating)
+
     } else if (this.props.currentUser) {
       userId = this.props.currentUser.id
-      newRating = {
-        movie_id: this.state.singleMovie.id,
-        rating: +rating
-      }
-      
-      postUserRating(userId, newRating)
-      .then(rating => this.setState({ currentUserRating: rating.rating}))
-      .catch(error => this.setState({ error: error.message }))
+
+      this.createNewRating(userId, rating)
     }
   }
 
-
+  createNewRating = (userId, rating) => {
+    const newRating = {
+      movie_id: this.state.singleMovie.id,
+      rating: +rating
+    }
+    
+    console.log('newRating obj', newRating)
+    
+    postUserRating(userId, newRating)
+    .then(() => this.updateUserRating())
+    .catch(error => this.setState({ error: error.message }))
+  }
 
   render() {
     return(

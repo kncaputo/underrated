@@ -61,7 +61,7 @@ export const postUserRating = (id, rating) => {
   })
   .then((response) => {
     if (!response.ok) {
-      throw Error('Sorry! We couldn\'t post your rating.')
+      throw Error
     }
     return response.json()
   })

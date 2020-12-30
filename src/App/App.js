@@ -62,7 +62,7 @@ class App extends Component {
                 }
                 {this.state.currentUser &&
                   <section>
-                    <p>Hello, {this.state.currentUser.name}</p>
+                    <p>Hello, {this.state.currentUser.name}!</p>
                     <button onClick={this.signOut}>Sign Out</button>
                   </section>     
                 }

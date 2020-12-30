@@ -25,7 +25,8 @@ class MovieDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if(prevProps.currentUser !== this.props.currentUser) {
-     this.getUserRatings()
+      this.setState({ currentUserRating: null })
+      this.getUserRatings()
     }
   }
 

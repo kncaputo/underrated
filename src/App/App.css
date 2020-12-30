@@ -23,6 +23,35 @@ nav {
   margin: .75em .75em 0.2em .75em;
 }
 
+.btn-primary {
+  padding-bottom: 0;
+  margin-bottom: -0.1em;
+  padding-left: 0;
+  background-color: black;
+  border-color: black;
+}
+
+.btn-primary:hover {
+  cursor: pointer;
+  padding-bottom: 0;
+  margin-bottom: -0.1em;
+  padding-left: 0;
+  background-color: black;
+  border-color: black;
+}
+
+.show>.btn-primary.dropdown-toggle {
+  padding-bottom: 0;
+  margin-bottom: -0.1em;
+  padding-left: 0;
+  background-color: black;
+  border-color: black;
+}
+
+.dropdown-toggle:focus {
+  box-shadow: 0em black;
+}
+
 @media only screen and (max-width: 539px) {
   header {
     display: flex;

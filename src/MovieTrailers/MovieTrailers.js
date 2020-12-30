@@ -35,7 +35,9 @@ class MovieTrailers extends Component {
   render() {
     return(
       <section className="trailers">
-        <Carousel>
+        <Carousel
+          showThumbs={false}
+        >
           {this.formatTrailers()}
         </Carousel>  
       </section>

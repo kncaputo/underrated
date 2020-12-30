@@ -13,8 +13,7 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      currentUser: null,
-      currentUserRatings: []
+      currentUser: null
     }
   }
   
@@ -32,14 +31,7 @@ class App extends Component {
 
     postLoginCredentials(credentials)
     .then(user => this.setState({ currentUser: user.user }))
-    .then(() => this.getUserRatings())
     .catch(error => this.setState({ error: error.message}))
-  }
-
-  getUserRatings = () => {
-    fetchUserRatings(this.state.currentUser.id)
-    .then(ratings => this.setState({ currentUserRatings: ratings.ratings }))
-    .catch(error => this.setState({ error: error.message}))  
   }
 
   clearError = () => {
@@ -92,7 +84,11 @@ class App extends Component {
           exact
           path="/movie/:id"
           render={( { match }) => {
-            return (<MovieDetails id={match.params.id} />)
+            return (
+              <MovieDetails 
+                id={match.params.id}
+                currentUser={this.state.currentUser}
+             />)
           }}
         />
       </main>

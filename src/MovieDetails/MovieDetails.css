@@ -183,5 +183,6 @@
   
   .backdrop-overlay {
     display: flex;
+    flex-direction: row;
    }
 }

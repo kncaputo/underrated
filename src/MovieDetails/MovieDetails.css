@@ -134,6 +134,15 @@
     display: none;
   }
 
+  .responsive-poster {
+    display: block;
+  }
+
+  .poster-img {
+    width: 130px;
+    margin-right: 15px;
+  }
+
   .responsive-list {
     display: block;
   }
@@ -147,6 +156,11 @@
     left: 0;
   }
   
+  .backdrop-overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -181,8 +195,16 @@
     margin-right: 15px;
   }
   
+  .title {
+    font-size: 2em;
+  }
+
   .backdrop-overlay {
     display: flex;
     flex-direction: row;
-   }
+  }
+
+  .rating-star {
+    font-size: 2em;
+  }
 }

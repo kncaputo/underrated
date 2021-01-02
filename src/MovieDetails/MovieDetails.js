@@ -93,7 +93,7 @@ class MovieDetails extends Component {
     } else if (this.state.singleMovie.genres.length > 1) {
       let commaList = this.state.singleMovie.genres.map(genre => {
         return(
-          <p className="genre">{genre}</p>
+          <p key={Math.random()} className="genre">{genre}</p>
         )
       })
       return commaList;
@@ -106,18 +106,22 @@ class MovieDetails extends Component {
     return (
       <section>
         <ListItem 
+          key={Math.random()}
           label="Release Date"
           body={new Date(this.state.singleMovie.release_date).toLocaleDateString()}
         />
         <ListItem 
+          key={Math.random()}
           label="Runtime"
           body={`${this.state.singleMovie.runtime} mins`}
         />
         <ListItem 
+          key={Math.random()}
           label="Budget"
           body={`$${new Intl.NumberFormat("en-US").format(this.state.singleMovie.budget)}`}
         />
         <ListItem 
+          key={Math.random()}
           label="Revenue"
           body={`$${new Intl.NumberFormat("en-US").format(this.state.singleMovie.revenue)}`}
         />

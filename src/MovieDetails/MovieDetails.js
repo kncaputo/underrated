@@ -164,7 +164,7 @@ class MovieDetails extends Component {
                 <StarRating 
                   currentUser={this.props.currentUser}
                   currentUserRating={!this.state.currentUserRating ? 0 : this.state.currentUserRating.rating}
-                  canEdit={true} 
+                  canEdit={!this.props.currentUser ? false : true} 
                   setStarRating={this.setStarRating}
                 />
                 {this.state.onWatchlist === true && <button className="on-watchlist-button" onClick={() => this.toggleWatchlist()}>On Watchlist</button>}

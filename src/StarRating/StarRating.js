@@ -24,15 +24,23 @@ class StarRating extends Component {
     this.props.setStarRating(newRating)
   }
 
+  handleRatingText() {
+    if (this.props.currentUser === null) {
+      return <p>Please log in to rate</p>
+    } else if (this.props.currentUserRating === 0) {
+      return <p>Rate this movie</p>
+    }
+    return <p>Your rating is {this.state.rating}</p>
+  }
+
   render() {
     return(
       <section>
-        Your Rating is: {this.state.rating}
+        {this.handleRatingText()}
         <ReactStars
           key={Math.random()}
           value={this.state.rating}
           edit={this.props.canEdit}
-          isHalf={true}
           count={10}
           onChange={this.handleStarChange}
           size={24}

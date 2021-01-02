@@ -17,6 +17,7 @@ class MovieDetails extends Component {
   }
   
   componentDidMount() {
+    window.scrollTo(0, 0)
     fetchSingleMovie(this.props.id)
     .then(singleMovie => this.setState({ singleMovie: singleMovie.movie }))
     .then(() => this.getUserRatings())
@@ -24,23 +25,66 @@ class MovieDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    window.scrollTo(0, 0)
     if(prevProps.currentUser !== this.props.currentUser) {
-     this.getUserRatings()
+      this.setState({ currentUserRating: null, error: "" })
+      this.getUserRatings()
     }
   }
 
-  getUserRatings() {
-    if (this.props.currentUser) {
-      this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
-      fetchUserRatings(this.props.currentUser.id)
-      .then(ratings => {
-        const userRating = ratings.ratings.find(rating => {
-          return rating.movie_id === this.state.singleMovie.id
-        })
-        this.setState({ currentUserRating: userRating })
-      })
-      .catch(error => this.setState({ error: error.message}))  
+  setStarRating = (rating) => {
+    let ratingId;
+    let userId;
+    
+    if (this.props.currentUser && this.state.currentUserRating) {
+      ratingId = this.state.currentUserRating.id
+      userId = this.props.currentUser.id
+
+      deleteUserRating(userId, ratingId)
+      .then(response => console.log('delete response', response))
+      .catch(error => this.setState({ error: error.message }))
+
+      this.createNewRating(userId, rating)
+
+    } else if (this.props.currentUser) {
+      userId = this.props.currentUser.id
+
+      this.createNewRating(userId, rating)
     }
+  }
+
+  createNewRating = (userId, rating) => {
+    const newRating = {
+      movie_id: this.state.singleMovie.id,
+      rating: +rating
+    }
+    
+    console.log('newRating obj', newRating)
+    
+    postUserRating(userId, newRating)
+    .then(() => this.updateUserRating())
+    .catch(error => this.setState({ error: error.message }))
+  }
+
+  getUserRatings() {
+    this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
+   
+    if (this.props.currentUser) {
+      this.updateUserRating()
+    }
+  }
+
+  updateUserRating = () => {
+    fetchUserRatings(this.props.currentUser.id)
+    .then(ratings => { 
+      console.log('allratings', ratings)
+      const userRating = ratings.ratings.find(rating => {
+        return rating.movie_id === this.state.singleMovie.id
+      })
+      console.log('userRating', userRating)
+      this.setState({ currentUserRating: userRating })
+    })
+    .catch(error => this.setState({ error: error.message}))  
   }
 
   formatGenres = () => {
@@ -49,7 +93,7 @@ class MovieDetails extends Component {
     } else if (this.state.singleMovie.genres.length > 1) {
       let commaList = this.state.singleMovie.genres.map(genre => {
         return(
-          <p className="genre">{genre}</p>
+          <p key={Math.random()} className="genre">{genre}</p>
         )
       })
       return commaList;
@@ -62,18 +106,22 @@ class MovieDetails extends Component {
     return (
       <section>
         <ListItem 
+          key={Math.random()}
           label="Release Date"
           body={new Date(this.state.singleMovie.release_date).toLocaleDateString()}
         />
         <ListItem 
+          key={Math.random()}
           label="Runtime"
           body={`${this.state.singleMovie.runtime} mins`}
         />
         <ListItem 
+          key={Math.random()}
           label="Budget"
           body={`$${new Intl.NumberFormat("en-US").format(this.state.singleMovie.budget)}`}
         />
         <ListItem 
+          key={Math.random()}
           label="Revenue"
           body={`$${new Intl.NumberFormat("en-US").format(this.state.singleMovie.revenue)}`}
         />
@@ -88,34 +136,6 @@ class MovieDetails extends Component {
       this.setState({ onWatchlist: false})
     }
   }
-
-  setStarRating = (rating) => {
-    let ratingId;
-    let userId;
-    let newRating;
-    
-    
-    if (this.props.currentUser && this.state.currentUserRating) {
-      ratingId = this.state.currentUserRating.id
-      userId = this.props.currentUser.id
-      
-      deleteUserRating(userId, ratingId)
-      .then(response => console.log(response))
-      .catch(error => this.setState({ error: error.message }))
-      
-    } else if (this.props.currentUser) {
-      userId = this.props.currentUser.id
-      newRating = {
-        movie_id: this.state.singleMovie.id,
-        rating: +rating
-      }
-      
-      postUserRating(userId, newRating)
-      .then(rating => this.setState({ currentUserRating: rating.rating}))
-      .catch(error => this.setState({ error: error.message }))
-    }
-  }
-
 
 
   render() {
@@ -147,23 +167,21 @@ class MovieDetails extends Component {
             </section>
             <section className="overview-box">
               <section className="rating-watchlist">
-                {!this.state.currentUserRating &&
-                  <StarRating 
-                    currentUserRating={0}
-                    canEdit={true} 
-                    setStarRating={this.setStarRating}
-                  />
-                }
-                {this.state.currentUserRating && 
-                  <StarRating 
-                    currentUserRating={this.state.currentUserRating.rating}
-                    canEdit={true} 
-                    setStarRating={this.setStarRating}
-                  />
-                }
+                <StarRating 
+                  currentUser={this.props.currentUser}
+                  currentUserRating={!this.state.currentUserRating ? 0 : this.state.currentUserRating.rating}
+                  canEdit={!this.props.currentUser ? false : true} 
+                  setStarRating={this.setStarRating}
+                />
                 {this.state.onWatchlist === true && <button className="on-watchlist-button" onClick={() => this.toggleWatchlist()}>On Watchlist</button>}
                 {this.state.onWatchlist === false && <button className="add-watchlist-button" onClick={() => this.toggleWatchlist()}>+ Add to Watchlist</button>}
               </section>
+
+              {/* Responsive genres list */}
+              <section className="responsive-genre-list">
+                  {this.formatGenres()}
+              </section>
+              
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
               <section className="responsive-list">

@@ -87,10 +87,11 @@
 .trailer-box {
   padding-top: 1.25em;
   padding-left: 1em;
+  width: 650px;
 }
 
 .trailer-header {
-  margin-bottom: 2.25em;
+  margin-bottom: .5em;
 }
 
 .rating-star {
@@ -129,9 +130,22 @@
   font-size: 0.8em;
 }
 
+.responsive-genre-list {
+  display: none;
+}
+
 @media only screen and (max-width: 1025px) and (min-width: 768px) {
   .movie-aside {
     display: none;
+  }
+
+  .responsive-poster {
+    display: block;
+  }
+
+  .poster-img {
+    width: 130px;
+    margin-right: 15px;
   }
 
   .responsive-list {
@@ -147,6 +161,19 @@
     left: 0;
   }
   
+  .backdrop-overlay {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .genre-list {
+    display: none;
+  }
+
+  .responsive-genre-list {
+    display: flex;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -181,7 +208,24 @@
     margin-right: 15px;
   }
   
+  .title {
+    font-size: 2em;
+  }
+
   .backdrop-overlay {
     display: flex;
-   }
+    flex-direction: row;
+  }
+
+  .rating-star {
+    font-size: 2em;
+  }
+
+  .genre-list {
+    display: none;
+  }
+
+  .responsive-genre-list {
+    display: flex;
+  }
 }

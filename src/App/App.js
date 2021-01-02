@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import Search from '../Search/Search';
 import { fetchMovies, fetchUserRatings, postLoginCredentials } from '../apiCalls';
 import { Route, NavLink } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -13,7 +14,8 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      currentUser: null
+      currentUser: null,
+      input: ''
     }
   }
   
@@ -41,6 +43,14 @@ class App extends Component {
   signOut = () => {
     this.setState({ currentUser: null })
   }
+
+  get filterMoviesByTitle() {
+    const filteredMovies = this.state.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(this.state.input)
+     })
+ 
+    return filteredMovies
+   }
 
   render() {
     return(
@@ -77,7 +87,7 @@ class App extends Component {
           render={() => {
             return (
               <MovieGrid
-                movies={this.state.movies}  
+                movies={this.filterMoviesByTitle}  
               />
             )
           }}

@@ -17,6 +17,7 @@ class MovieDetails extends Component {
   }
   
   componentDidMount() {
+    window.scrollTo(0, 0)
     fetchSingleMovie(this.props.id)
     .then(singleMovie => this.setState({ singleMovie: singleMovie.movie }))
     .then(() => this.getUserRatings())
@@ -24,6 +25,7 @@ class MovieDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    window.scrollTo(0, 0)
     if(prevProps.currentUser !== this.props.currentUser) {
       this.setState({ currentUserRating: null, error: "" })
       this.getUserRatings()
@@ -184,7 +186,6 @@ class MovieDetails extends Component {
             </section>
             <section className="trailer-box">
               <h3 className="trailer-header">Trailers</h3>
-              
               <MovieTrailers 
                 id={this.props.id} 
               />

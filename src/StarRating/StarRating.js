@@ -26,8 +26,11 @@ class StarRating extends Component {
 
   handleRatingText() {
     if (this.props.currentUser === null) {
-      return <p>Please log in to rate.</p>
+      return <p>Please log in to rate</p>
+    } else if (this.props.currentUserRating === 0) {
+      return <p>Rate this movie</p>
     }
+    return <p>Your rating is {this.state.rating}</p>
   }
 
   render() {

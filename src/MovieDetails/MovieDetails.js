@@ -161,20 +161,12 @@ class MovieDetails extends Component {
             </section>
             <section className="overview-box">
               <section className="rating-watchlist">
-                {!this.state.currentUserRating &&
-                  <StarRating 
-                    currentUserRating={0}
-                    canEdit={true} 
-                    setStarRating={this.setStarRating}
-                  />
-                }
-                {this.state.currentUserRating && 
-                  <StarRating 
-                    currentUserRating={this.state.currentUserRating.rating}
-                    canEdit={true} 
-                    setStarRating={this.setStarRating}
-                  />
-                }
+                <StarRating 
+                  currentUser={this.props.currentUser}
+                  currentUserRating={!this.state.currentUserRating ? 0 : this.state.currentUserRating.rating}
+                  canEdit={true} 
+                  setStarRating={this.setStarRating}
+                />
                 {this.state.onWatchlist === true && <button className="on-watchlist-button" onClick={() => this.toggleWatchlist()}>On Watchlist</button>}
                 {this.state.onWatchlist === false && <button className="add-watchlist-button" onClick={() => this.toggleWatchlist()}>+ Add to Watchlist</button>}
               </section>

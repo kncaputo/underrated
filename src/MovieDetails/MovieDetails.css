@@ -87,10 +87,11 @@
 .trailer-box {
   padding-top: 1.25em;
   padding-left: 1em;
+  width: 650px;
 }
 
 .trailer-header {
-  margin-bottom: 2.25em;
+  margin-bottom: .5em;
 }
 
 .rating-star {

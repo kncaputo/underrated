@@ -20,26 +20,38 @@ class MovieTrailers extends Component {
     .catch(error => this.setState({ error: error.message }))
   }
 
-  formatTrailers = () => {
-    return this.state.trailers.map(trailer => {
-      return (
-        <ReactPlayer 
-          key={trailer.id}
-          url={`https://www.youtube.com/watch?v=${trailer.key}`}
-        />  
-      )  
+  determineAvailableTrailers = () => {
+    return this.state.trailers.find(trailer => {
+      return trailer.site === "YouTube"
     })
   }
-
+  
+  formatTrailers = () => {
+    return this.state.trailers.map(trailer => {
+      if(trailer.site === "YouTube") {
+        return (
+          <ReactPlayer 
+            key={trailer.id}
+            url={`https://www.youtube.com/watch?v=${trailer.key}`}
+          />  
+        )  
+      }
+    })
+  }
 
   render() {
     return(
       <section className="trailers">
-        <Carousel
-          showThumbs={false}
-        >
-          {this.formatTrailers()}
-        </Carousel>  
+        {this.determineAvailableTrailers() &&
+          <Carousel
+            showThumbs={false}
+          >
+            {this.formatTrailers()}
+          </Carousel>  
+        }
+        {!this.determineAvailableTrailers() &&
+          <p>Sorry, no available trailers for this movie.</p>
+        }
       </section>
     )
   }

@@ -184,6 +184,7 @@ class MovieDetails extends Component {
             </section>
             <section className="trailer-box">
               <h3 className="trailer-header">Trailers</h3>
+              
               <MovieTrailers 
                 id={this.props.id} 
               />

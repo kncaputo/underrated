@@ -38,3 +38,25 @@
 		width: 200px;
 	}
 }
+
+@media only screen and (max-width: 767px) {
+	.details-box {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		width: 400px;
+		margin: 5px;
+	}
+	
+	.l-details {
+		text-align: right;
+		margin: 0px 10px;
+		width: 200px;
+	}
+	
+	.r-details {
+		text-align: left;
+		margin: 0px 10px;
+		width: 200px;
+	}
+}

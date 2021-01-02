@@ -129,6 +129,10 @@
   font-size: 0.8em;
 }
 
+.responsive-genre-list {
+  display: none;
+}
+
 @media only screen and (max-width: 1025px) and (min-width: 768px) {
   .movie-aside {
     display: none;
@@ -160,6 +164,14 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+  }
+
+  .genre-list {
+    display: none;
+  }
+
+  .responsive-genre-list {
+    display: flex;
   }
 }
 
@@ -206,5 +218,13 @@
 
   .rating-star {
     font-size: 2em;
+  }
+
+  .genre-list {
+    display: none;
+  }
+
+  .responsive-genre-list {
+    display: flex;
   }
 }

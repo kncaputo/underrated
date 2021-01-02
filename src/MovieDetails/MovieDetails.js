@@ -30,9 +30,44 @@ class MovieDetails extends Component {
     }
   }
 
+  setStarRating = (rating) => {
+    let ratingId;
+    let userId;
+    
+    if (this.props.currentUser && this.state.currentUserRating) {
+      ratingId = this.state.currentUserRating.id
+      userId = this.props.currentUser.id
+
+      deleteUserRating(userId, ratingId)
+      .then(response => console.log('delete response', response))
+      .catch(error => this.setState({ error: error.message }))
+
+      this.createNewRating(userId, rating)
+
+    } else if (this.props.currentUser) {
+      userId = this.props.currentUser.id
+
+      this.createNewRating(userId, rating)
+    }
+  }
+
+  createNewRating = (userId, rating) => {
+    const newRating = {
+      movie_id: this.state.singleMovie.id,
+      rating: +rating
+    }
+    
+    console.log('newRating obj', newRating)
+    
+    postUserRating(userId, newRating)
+    .then(() => this.updateUserRating())
+    .catch(error => this.setState({ error: error.message }))
+  }
+
   getUserRatings() {
+    this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
+   
     if (this.props.currentUser) {
-      this.setState({ formattedRating: this.state.singleMovie.average_rating.toFixed(1)})
       this.updateUserRating()
     }
   }
@@ -96,39 +131,6 @@ class MovieDetails extends Component {
     }
   }
 
-  setStarRating = (rating) => {
-    let ratingId;
-    let userId;
-    
-    if (this.props.currentUser && this.state.currentUserRating) {
-      ratingId = this.state.currentUserRating.id
-      userId = this.props.currentUser.id
-
-      deleteUserRating(userId, ratingId)
-      .then(response => console.log('delete response', response))
-      .catch(error => this.setState({ error: error.message }))
-
-      this.createNewRating(userId, rating)
-
-    } else if (this.props.currentUser) {
-      userId = this.props.currentUser.id
-
-      this.createNewRating(userId, rating)
-    }
-  }
-
-  createNewRating = (userId, rating) => {
-    const newRating = {
-      movie_id: this.state.singleMovie.id,
-      rating: +rating
-    }
-    
-    console.log('newRating obj', newRating)
-    
-    postUserRating(userId, newRating)
-    .then(() => this.updateUserRating())
-    .catch(error => this.setState({ error: error.message }))
-  }
 
   render() {
     return(
@@ -176,6 +178,12 @@ class MovieDetails extends Component {
                 {this.state.onWatchlist === true && <button className="on-watchlist-button" onClick={() => this.toggleWatchlist()}>On Watchlist</button>}
                 {this.state.onWatchlist === false && <button className="add-watchlist-button" onClick={() => this.toggleWatchlist()}>+ Add to Watchlist</button>}
               </section>
+
+              {/* Responsive genres list */}
+              <section className="responsive-genre-list">
+                  {this.formatGenres()}
+              </section>
+              
               <h3>Synopsis</h3>
               <p className="overview">{this.state.singleMovie.overview}</p>
               <section className="responsive-list">

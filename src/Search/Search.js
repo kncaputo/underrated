@@ -11,7 +11,7 @@ class Search extends Component {
   searchByInput = (event) => {
     event.preventDefault()
     this.setState({input: event.target.value.toLowerCase()})
-    this.props.inputValue(event.target.value)
+    this.props.getUserInput(event.target.value)
   }
   render() {
     return(

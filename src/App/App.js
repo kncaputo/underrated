@@ -47,10 +47,14 @@ class App extends Component {
   get filterMoviesByTitle() {
     const filteredMovies = this.state.movies.filter(movie => {
       return movie.title.toLowerCase().includes(this.state.input)
-     })
- 
+    })
+
     return filteredMovies
-   }
+  }
+
+  getUserInput = (inputValue) => {
+    this.setState({input: inputValue})
+  }
 
   render() {
     return(
@@ -81,6 +85,9 @@ class App extends Component {
             </DropdownButton>
           </nav>
         </header>
+        <Search 
+          getUserInput={this.getUserInput} 
+        />
         <Route 
           exact 
           path="/" 

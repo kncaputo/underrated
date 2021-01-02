@@ -85,17 +85,19 @@ class App extends Component {
             </DropdownButton>
           </nav>
         </header>
-        <Search 
-          getUserInput={this.getUserInput} 
-        />
         <Route 
           exact 
           path="/" 
           render={() => {
             return (
-              <MovieGrid
-                movies={this.filterMoviesByTitle}  
-              />
+              <section>
+                <Search 
+                  getUserInput={this.getUserInput} 
+                />
+                <MovieGrid
+                  movies={this.filterMoviesByTitle}  
+                />
+              </section>
             )
           }}
         />

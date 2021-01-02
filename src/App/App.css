@@ -23,6 +23,25 @@ nav {
   margin: .75em .75em 0.2em .75em;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darkgray;
+}
+
+.active:hover {
+  color: white;
+  text-decoration: underline;
+  cursor: default;
+}
+
+.active {
+  text-decoration: underline;
+}
+
 .btn-primary {
   padding-bottom: 0;
   margin-bottom: -0.1em;

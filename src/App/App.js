@@ -3,7 +3,7 @@ import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import { fetchMovies, fetchUserRatings, postLoginCredentials } from '../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.css';
 
@@ -48,7 +48,9 @@ class App extends Component {
         <header>
           <h1 className='page-title'>underrated</h1>
           <nav>
-            <p className='nav-labels'>all movies</p>
+            <Link to="/">
+              <p className='nav-labels'>all movies</p>
+            </Link>
             <p className='nav-labels'>watchlist</p>
             <DropdownButton 
               className='nav-labels' 

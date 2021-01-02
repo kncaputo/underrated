@@ -15,7 +15,7 @@ class Search extends Component {
   }
   render() {
     return(
-      <input onChange={this.searchByInput} type="text" value={this.state.input} placeholder="Search by Title"></input>
+      <input onChange={this.searchByInput} type="text" value={this.state.input} placeholder="search by movie title" className="search-bar"></input>
     )
   }
 }

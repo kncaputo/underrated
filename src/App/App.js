@@ -90,6 +90,10 @@ class App extends Component {
     this.setState({ ratingValue: event.target.value })
   }
 
+  clearFilters = () => {
+    this.setState({ input: '', dropdownValue: 'all', ratingValue: 'any' })
+  }
+
   render() {
     return(
       <main>
@@ -168,6 +172,7 @@ class App extends Component {
                     <button name="nine" value="9" onClick={(event) => this.handleRatingValue(event)}>nine</button>
                     <button name="ten" value="10" onClick={(event) => this.handleRatingValue(event)}>ten</button>
                   </DropdownButton>
+                  <button onClick={() => this.clearFilters()}>clear</button>
                 </section>
                 <MovieGrid
                   movies={this.filterMoviesBySelection}  

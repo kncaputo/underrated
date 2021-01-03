@@ -55,24 +55,27 @@ class App extends Component {
     this.setState({ currentUser: null })
   }
 
-  get filterMoviesByTitle() {
-    if (this.state.dropdownValue !== 'all') {
-      return this.state.movies.filter(movie => {
-        if (movie.genres) {
-          return movie.genres.includes(this.state.dropdownValue);
-        }
-      })
-    } else if (this.state.ratingValue !== 'any') {
-      return this.state.movies.filter(movie => {
+  get filterMoviesBySelection() {
+    const filterByGenre = this.state.movies.filter(movie => {
+      if (this.state.dropdownValue !== 'all' && movie.genres) {
+        return movie.genres.includes(this.state.dropdownValue)
+      } else {
+        return this.state.movies
+      }
+    })
+
+    const filterByRating = filterByGenre.filter(movie => {
+      if (this.state.ratingValue !== 'any') {
         const roundedRating = parseInt(movie.average_rating)
-        console.log(roundedRating)
         return roundedRating === parseInt(this.state.ratingValue)
-      })
-    } else {
-      return this.state.movies.filter(movie => {
-        return movie.title.toLowerCase().includes(this.state.input)
-      })
-    }
+      } else {
+        return filterByGenre
+      }
+    })
+
+    return filterByRating.filter(movie => {
+      return movie.title.toLowerCase().includes(this.state.input)
+    })
   }
 
   getUserInput = (inputValue) => {
@@ -167,7 +170,7 @@ class App extends Component {
                   </DropdownButton>
                 </section>
                 <MovieGrid
-                  movies={this.filterMoviesByTitle}  
+                  movies={this.filterMoviesBySelection}  
                 />
               </section>
             )
@@ -190,10 +193,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// iterate over all movies
-  // for each movie, use movie id 
-    // fetch single movie
-      // if single movie genre === searched genre
-        // return single movie

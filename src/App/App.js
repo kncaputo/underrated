@@ -30,7 +30,7 @@ class App extends Component {
   findMovieGenres = () => {
     this.state.movies.map(movie => {
       fetchSingleMovie(movie.id)
-      .then(singleMovie =>  movie.genres = singleMovie.movie.genres)
+      .then(singleMovie => movie.genres = singleMovie.movie.genres)
     })
   }
 
@@ -117,7 +117,23 @@ class App extends Component {
                   <p>showing {this.state.dropdownValue} movies</p>
                   <DropdownButton
                     title=''>
-                    <button name="Action" onClick={(event) => this.handleDropdownValue(event)}>Action</button>
+                    <button onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
+                    <button name="Action" onClick={(event) => this.handleDropdownValue(event)}>action</button>
+                    <button name="Adventure" onClick={(event) => this.handleDropdownValue(event)}>adventure</button>
+                    <button name="Animation" onClick={(event) => this.handleDropdownValue(event)}>animation</button>
+                    <button name="Comedy" onClick={(event) => this.handleDropdownValue(event)}>comedy</button>
+                    <button name="Crime" onClick={(event) => this.handleDropdownValue(event)}>crime</button>
+                    <button name="Drama" onClick={(event) => this.handleDropdownValue(event)}>drama</button>
+                    <button name="Family" onClick={(event) => this.handleDropdownValue(event)}>family</button>
+                    <button name="Fantasy" onClick={(event) => this.handleDropdownValue(event)}>fantasy</button>
+                    <button name="History" onClick={(event) => this.handleDropdownValue(event)}>history</button>
+                    <button name="Horror" onClick={(event) => this.handleDropdownValue(event)}>horror</button>
+                    <button name="Music" onClick={(event) => this.handleDropdownValue(event)}>music</button>
+                    <button name="Romance" onClick={(event) => this.handleDropdownValue(event)}>romance</button>
+                    <button name="Science fiction" onClick={(event) => this.handleDropdownValue(event)}>science fiction</button>
+                    <button name="Thriller" onClick={(event) => this.handleDropdownValue(event)}>thriller</button>
+                    <button name="War" onClick={(event) => this.handleDropdownValue(event)}>war</button>
+                    <button name="Western" onClick={(event) => this.handleDropdownValue(event)}>western</button>
                   </DropdownButton>
                 </section>
                 <MovieGrid

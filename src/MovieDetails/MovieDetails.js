@@ -18,6 +18,7 @@ class MovieDetails extends Component {
   
   componentDidMount() {
     window.scrollTo(0, 0)
+
     fetchSingleMovie(this.props.id)
     .then(singleMovie => this.setState({ singleMovie: singleMovie.movie }))
     .then(() => this.getUserRatings())
@@ -26,6 +27,7 @@ class MovieDetails extends Component {
 
   componentDidUpdate(prevProps) {
     window.scrollTo(0, 0)
+
     if(prevProps.currentUser !== this.props.currentUser) {
       this.setState({ currentUserRating: null, error: "" })
       this.getUserRatings()
@@ -59,8 +61,6 @@ class MovieDetails extends Component {
       rating: +rating
     }
     
-    console.log('newRating obj', newRating)
-    
     postUserRating(userId, newRating)
     .then(() => this.updateUserRating())
     .catch(error => this.setState({ error: error.message }))
@@ -77,11 +77,9 @@ class MovieDetails extends Component {
   updateUserRating = () => {
     fetchUserRatings(this.props.currentUser.id)
     .then(ratings => { 
-      console.log('allratings', ratings)
       const userRating = ratings.ratings.find(rating => {
         return rating.movie_id === this.state.singleMovie.id
       })
-      console.log('userRating', userRating)
       this.setState({ currentUserRating: userRating })
     })
     .catch(error => this.setState({ error: error.message}))  
@@ -136,7 +134,6 @@ class MovieDetails extends Component {
       this.setState({ onWatchlist: false})
     }
   }
-
 
   render() {
     return(

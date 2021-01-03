@@ -114,7 +114,7 @@ class App extends Component {
                   getUserInput={this.getUserInput} 
                 />
                 <section className="genre-filter">
-                  <p>showing {this.state.dropdownValue} movies</p>
+                  <p className="genre-showing">showing <span className="genre-text">{this.state.dropdownValue}</span> movies</p>
                   <DropdownButton
                     title=''>
                     <button onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>

@@ -73,7 +73,16 @@ a:hover {
 
 .genre-filter {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+}
+
+.genre-text {
+  text-decoration: underline;
+}
+
+.genre-showing {
+  margin-bottom: 0;
 }
 
 .btn {

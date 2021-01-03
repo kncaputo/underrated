@@ -3,7 +3,6 @@ import StarRating from './StarRating';
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { currentUser } from '../testData';
-// import { mockComponent } from 'react-dom/test-utils';
 
 describe('StarRating', () => {
   it('should render correctly', () => {
@@ -15,6 +14,9 @@ describe('StarRating', () => {
         setStarRating={jest.fn()}
       />
     )
+
+    expect(screen.getByText('Your rating is 5')).toBeInTheDocument();
+    expect(screen.getByRole('status')).toBeInTheDocument();
   })
 })
 

@@ -172,7 +172,9 @@ class App extends Component {
                     <button name="nine" value="9" onClick={(event) => this.handleRatingValue(event)}>nine</button>
                     <button name="ten" value="10" onClick={(event) => this.handleRatingValue(event)}>ten</button>
                   </DropdownButton>
-                  <button onClick={() => this.clearFilters()}>clear</button>
+                  {this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any' &&
+                    <button className="clear" onClick={() => this.clearFilters()}>clear</button>
+                  }
                 </section>
                 <MovieGrid
                   movies={this.filterMoviesBySelection}  

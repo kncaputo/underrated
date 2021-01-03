@@ -97,6 +97,16 @@ button {
   border: none;
 }
 
+.clear {
+  height: 2em;
+  border: solid white 0.1em;
+  border-radius: 1em;
+  color: white;
+  background-color: black;
+  font-size: 0.8em;
+  outline: none;
+}
+
 @media only screen and (max-width: 539px) {
   header {
     display: flex;

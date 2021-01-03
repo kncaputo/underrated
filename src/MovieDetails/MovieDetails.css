@@ -113,6 +113,7 @@
   color: white;
   background-color: black;
   font-size: 0.8em;
+  outline: none;
 }
 
 .add-watchlist-button:hover {

@@ -3,6 +3,9 @@ header {
   justify-content: space-between;
   background-color: black;
   color: white;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
 }
 
 body {
@@ -69,6 +72,39 @@ a:hover {
 
 .dropdown-toggle:focus {
   box-shadow: 0em black;
+}
+
+.genre-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.active-text {
+  text-decoration: underline;
+}
+
+.dropdown-text {
+  margin-bottom: 0;
+}
+
+.btn {
+  padding: none;
+}
+
+button {
+  border: none;
+}
+
+.clear {
+  height: 2em;
+  border: solid white 0.1em;
+  border-radius: 1em;
+  color: white;
+  background-color: black;
+  font-size: 0.8em;
+  outline: none;
 }
 
 @media only screen and (max-width: 539px) {

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import { fetchMovies, fetchUserRatings, postLoginCredentials } from '../apiCalls';
+import Search from '../Search/Search';
+import Banner from '../Banner/Banner';
+import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
 import { Route, NavLink } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.css';
@@ -13,14 +15,25 @@ class App extends Component {
     this.state = {
       movies: [],
       error: '',
-      currentUser: null
+      currentUser: null,
+      input: '',
+      dropdownValue: 'all',
+      ratingValue: 'any'
     }
   }
   
   componentDidMount = () => {
     fetchMovies()
     .then(allMovies => this.setState({ movies: allMovies.movies}))
+    .then(() => this.findMovieGenres())
     .catch(error => this.setState({ error: error.message }))
+  }
+
+  findMovieGenres = () => {
+    this.state.movies.map(movie => {
+      fetchSingleMovie(movie.id)
+      .then(singleMovie => movie.genres = singleMovie.movie.genres)
+    })
   }
 
   validateLogin = (loginEmail, loginPassword) => {
@@ -40,6 +53,45 @@ class App extends Component {
 
   signOut = () => {
     this.setState({ currentUser: null })
+  }
+
+  get filterMoviesBySelection() {
+    const filterByGenre = this.state.movies.filter(movie => {
+      if (this.state.dropdownValue !== 'all' && movie.genres) {
+        return movie.genres.includes(this.state.dropdownValue)
+      } else {
+        return this.state.movies
+      }
+    })
+
+    const filterByRating = filterByGenre.filter(movie => {
+      if (this.state.ratingValue !== 'any') {
+        const roundedRating = parseInt(movie.average_rating)
+        return roundedRating === parseInt(this.state.ratingValue)
+      } else {
+        return filterByGenre
+      }
+    })
+
+    return filterByRating.filter(movie => {
+      return movie.title.toLowerCase().includes(this.state.input)
+    })
+  }
+
+  getUserInput = (inputValue) => {
+    this.setState({input: inputValue})
+  }
+
+  handleDropdownValue = (event) => {
+    this.setState({ dropdownValue: event.target.name})
+  }
+
+  handleRatingValue = (event) => {
+    this.setState({ ratingValue: event.target.value })
+  }
+
+  clearFilters = () => {
+    this.setState({ input: '', dropdownValue: 'all', ratingValue: 'any' })
   }
 
   render() {
@@ -76,9 +128,58 @@ class App extends Component {
           path="/" 
           render={() => {
             return (
-              <MovieGrid
-                movies={this.state.movies}  
-              />
+              <section>
+                <Banner />
+                <Search 
+                  getUserInput={this.getUserInput} 
+                />
+                <section className="genre-filter">
+                  <p className="dropdown-text">showing <span className="active-text">{this.state.dropdownValue}</span> movies</p>
+                  <DropdownButton
+                    title=''
+                    className='genre-dropdown'>
+                    <button onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
+                    <button name="Action" onClick={(event) => this.handleDropdownValue(event)}>action</button>
+                    <button name="Adventure" onClick={(event) => this.handleDropdownValue(event)}>adventure</button>
+                    <button name="Animation" onClick={(event) => this.handleDropdownValue(event)}>animation</button>
+                    <button name="Comedy" onClick={(event) => this.handleDropdownValue(event)}>comedy</button>
+                    <button name="Crime" onClick={(event) => this.handleDropdownValue(event)}>crime</button>
+                    <button name="Drama" onClick={(event) => this.handleDropdownValue(event)}>drama</button>
+                    <button name="Family" onClick={(event) => this.handleDropdownValue(event)}>family</button>
+                    <button name="Fantasy" onClick={(event) => this.handleDropdownValue(event)}>fantasy</button>
+                    <button name="History" onClick={(event) => this.handleDropdownValue(event)}>history</button>
+                    <button name="Horror" onClick={(event) => this.handleDropdownValue(event)}>horror</button>
+                    <button name="Music" onClick={(event) => this.handleDropdownValue(event)}>music</button>
+                    <button name="Romance" onClick={(event) => this.handleDropdownValue(event)}>romance</button>
+                    <button name="Science fiction" onClick={(event) => this.handleDropdownValue(event)}>science fiction</button>
+                    <button name="Thriller" onClick={(event) => this.handleDropdownValue(event)}>thriller</button>
+                    <button name="War" onClick={(event) => this.handleDropdownValue(event)}>war</button>
+                    <button name="Western" onClick={(event) => this.handleDropdownValue(event)}>western</button>
+                  </DropdownButton>
+                  <p className="dropdown-text">with <span className="active-text">{this.state.ratingValue}</span> rating</p>
+                  <DropdownButton
+                    title=''
+                    className='rating-dropdown'>
+                    <button onClick={() => this.setState({ ratingValue: 'any' })}>any</button>
+                    <button name="one" value="1" onClick={(event) => this.handleRatingValue(event)}>one</button>
+                    <button name="two" value="2" onClick={(event) => this.handleRatingValue(event)}>two</button>
+                    <button name="three" value="3" onClick={(event) => this.handleRatingValue(event)}>three</button>
+                    <button name="four" value="4" onClick={(event) => this.handleRatingValue(event)}>four</button>
+                    <button name="five" value="5" onClick={(event) => this.handleRatingValue(event)}>five</button>
+                    <button name="six" value="6" onClick={(event) => this.handleRatingValue(event)}>six</button>
+                    <button name="seven" value="7" onClick={(event) => this.handleRatingValue(event)}>seven</button>
+                    <button name="eight" value="8" onClick={(event) => this.handleRatingValue(event)}>eight</button>
+                    <button name="nine" value="9" onClick={(event) => this.handleRatingValue(event)}>nine</button>
+                    <button name="ten" value="10" onClick={(event) => this.handleRatingValue(event)}>ten</button>
+                  </DropdownButton>
+                  {this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any' &&
+                    <button className="clear" onClick={() => this.clearFilters()}>clear</button>
+                  }
+                </section>
+                <MovieGrid
+                  movies={this.filterMoviesBySelection}  
+                />
+              </section>
             )
           }}
         />

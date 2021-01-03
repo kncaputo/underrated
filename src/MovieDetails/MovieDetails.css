@@ -6,11 +6,12 @@
 }
 
 .banner-img {
-  height: 500px;
+  height: 600px;
   width: 100%;
   object-fit: cover;
   opacity: 0.75;
   position: relative;
+  padding-top: 5em;
 }
 
 .movie-info {
@@ -40,7 +41,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 14.3em;
+  height: 16em;
   margin-top: 1em;
   padding-top: 1em;
   padding-left: 1em;
@@ -112,6 +113,7 @@
   color: white;
   background-color: black;
   font-size: 0.8em;
+  outline: none;
 }
 
 .add-watchlist-button:hover {

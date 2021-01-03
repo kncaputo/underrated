@@ -71,6 +71,15 @@ a:hover {
   box-shadow: 0em black;
 }
 
+.genre-filter {
+  display: flex;
+  align-items: flex-start;
+}
+
+.btn {
+  padding: none;
+}
+
 @media only screen and (max-width: 539px) {
   header {
     display: flex;

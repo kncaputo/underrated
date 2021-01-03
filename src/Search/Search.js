@@ -13,9 +13,10 @@ class Search extends Component {
     this.setState({input: event.target.value.toLowerCase()})
     this.props.getUserInput(event.target.value)
   }
+
   render() {
     return(
-      <input onChange={this.searchByInput} type="text" value={this.state.input} placeholder="search by movie title" className="search-bar"></input>
+        <input onChange={this.searchByInput} type="text" value={this.state.input} placeholder="&#128269; search by movie title" className="search-bar"></input>
     )
   }
 }

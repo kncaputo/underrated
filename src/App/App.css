@@ -77,11 +77,11 @@ a:hover {
   justify-content: center;
 }
 
-.genre-text {
+.active-text {
   text-decoration: underline;
 }
 
-.genre-showing {
+.dropdown-text {
   margin-bottom: 0;
 }
 

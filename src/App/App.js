@@ -16,7 +16,8 @@ class App extends Component {
       error: '',
       currentUser: null,
       input: '',
-      dropdownValue: 'all'
+      dropdownValue: 'all',
+      ratingValue: 'any'
     }
   }
   
@@ -60,6 +61,12 @@ class App extends Component {
           return movie.genres.includes(this.state.dropdownValue);
         }
       })
+    } else if (this.state.ratingValue !== 'any') {
+      return this.state.movies.filter(movie => {
+        const roundedRating = parseInt(movie.average_rating)
+        console.log(roundedRating)
+        return roundedRating === parseInt(this.state.ratingValue)
+      })
     } else {
       return this.state.movies.filter(movie => {
         return movie.title.toLowerCase().includes(this.state.input)
@@ -73,6 +80,10 @@ class App extends Component {
 
   handleDropdownValue = (event) => {
     this.setState({ dropdownValue: event.target.name})
+  }
+
+  handleRatingValue = (event) => {
+    this.setState({ ratingValue: event.target.value })
   }
 
   render() {
@@ -114,7 +125,7 @@ class App extends Component {
                   getUserInput={this.getUserInput} 
                 />
                 <section className="genre-filter">
-                  <p className="genre-showing">showing <span className="genre-text">{this.state.dropdownValue}</span> movies</p>
+                  <p className="dropdown-text">showing <span className="active-text">{this.state.dropdownValue}</span> movies</p>
                   <DropdownButton
                     title=''
                     className='genre-dropdown'>
@@ -135,6 +146,22 @@ class App extends Component {
                     <button name="Thriller" onClick={(event) => this.handleDropdownValue(event)}>thriller</button>
                     <button name="War" onClick={(event) => this.handleDropdownValue(event)}>war</button>
                     <button name="Western" onClick={(event) => this.handleDropdownValue(event)}>western</button>
+                  </DropdownButton>
+                  <p className="dropdown-text">with <span className="active-text">{this.state.ratingValue}</span> rating</p>
+                  <DropdownButton
+                    title=''
+                    className='rating-dropdown'>
+                    <button onClick={() => this.setState({ ratingValue: 'any' })}>any</button>
+                    <button name="one" value="1" onClick={(event) => this.handleRatingValue(event)}>one</button>
+                    <button name="two" value="2" onClick={(event) => this.handleRatingValue(event)}>two</button>
+                    <button name="three" value="3" onClick={(event) => this.handleRatingValue(event)}>three</button>
+                    <button name="four" value="4" onClick={(event) => this.handleRatingValue(event)}>four</button>
+                    <button name="five" value="5" onClick={(event) => this.handleRatingValue(event)}>five</button>
+                    <button name="six" value="6" onClick={(event) => this.handleRatingValue(event)}>six</button>
+                    <button name="seven" value="7" onClick={(event) => this.handleRatingValue(event)}>seven</button>
+                    <button name="eight" value="8" onClick={(event) => this.handleRatingValue(event)}>eight</button>
+                    <button name="nine" value="9" onClick={(event) => this.handleRatingValue(event)}>nine</button>
+                    <button name="ten" value="10" onClick={(event) => this.handleRatingValue(event)}>ten</button>
                   </DropdownButton>
                 </section>
                 <MovieGrid

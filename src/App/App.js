@@ -3,6 +3,7 @@ import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Search from '../Search/Search';
+import Banner from '../Banner/Banner';
 import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
 import { Route, NavLink } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -121,6 +122,7 @@ class App extends Component {
           render={() => {
             return (
               <section>
+                <Banner />
                 <Search 
                   getUserInput={this.getUserInput} 
                 />

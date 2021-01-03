@@ -2,10 +2,18 @@ import React from 'react';
 import './ListItem.css';
 
 const ListItem =  ({ label, body })  => {
+
+  const formatBody = () => {
+    if (body === '$0') {
+      return '-'
+    }
+    return body;
+  }
+
   return (
     <section className='details-box'>
       <p className='l-details'><b>{label}</b></p>
-      <p className='r-details'>{body}</p>
+      <p className='r-details'>{formatBody()}</p>
     </section>
   );
 }

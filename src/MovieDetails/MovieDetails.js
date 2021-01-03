@@ -43,7 +43,6 @@ class MovieDetails extends Component {
       userId = this.props.currentUser.id
 
       deleteUserRating(userId, ratingId)
-      .then(response => console.log('delete response', response))
       .catch(error => this.setState({ error: error.message }))
 
       this.createNewRating(userId, rating)

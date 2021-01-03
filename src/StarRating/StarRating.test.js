@@ -1,6 +1,6 @@
 import React from 'react';
 import StarRating from './StarRating';
-import { screen, render } from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { currentUser } from '../testData';
 
@@ -48,12 +48,21 @@ describe('StarRating', () => {
     expect(screen.getByText('Please log in to rate')).toBeInTheDocument();
     expect(screen.getByRole('status')).toBeInTheDocument();
   })
+
+  it('should call handleStarChange with a new rating when a star is clicked', () => {
+   render(
+      <StarRating
+        currentUser={currentUser}
+        currentUserRating={0}
+        canEdit={!currentUser ? false : true} 
+        setStarRating={jest.fn()}
+      />
+    )
+   screen.debug()
+    fireEvent('click', screen.getAllByText('★'))
+
+    expect(handleStarChange).toHaveBeenCalled();
+  })
 })
 
-
-// test that the react stars and rating text render
-// test that the handleStarChange is fired/called with the newRating
-// test that handleRatingText changes if a user is logged in (?)
-// test that handleRatingText changes is a user is logged in and not yet rated a movie (?)
-
-
+// TODO: test that the handleStarChange is fired/called with the newRating?

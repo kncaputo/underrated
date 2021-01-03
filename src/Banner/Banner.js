@@ -14,7 +14,7 @@ class Banner extends Component {
   }
 
   componentDidMount() {
-    fetchMovieTrailers(694919)
+    fetchMovieTrailers(337401)
     .then(trailers => this.setState({ trailers }))
     .catch(error => this.setState({ error: error.message}))
   }

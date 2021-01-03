@@ -122,7 +122,7 @@ class App extends Component {
           render={() => {
             return (
               <section>
-                <Banner />
+                {/* <Banner /> */}
                 <Search 
                   getUserInput={this.getUserInput} 
                 />

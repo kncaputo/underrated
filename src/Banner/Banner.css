@@ -1,0 +1,15 @@
+.react-player {
+  transform: scale(1.35);
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.player-cover {
+  transform: scale(1.35);
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchMovieTrailers } from '../apiCalls';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/youtube';
 import './Banner.css';
 
 class Banner extends Component {
@@ -26,10 +26,30 @@ class Banner extends Component {
 
     if (trailerDisplay) {
       return(
-        <ReactPlayer 
-            key={trailerDisplay.id}
-            url={`https://www.youtube.com/watch?v=${trailerDisplay.key}`}
-        />  
+        <section className="player-wrapper">
+          <ReactPlayer 
+              key={trailerDisplay.id}
+              url={`https://www.youtube.com/watch?v=${trailerDisplay.key}`}
+              className="react-player"
+              width="100%"
+              height="100%"
+              controls={false}
+              muted={true}
+              playing={true}
+              loop={true}
+              config={{
+                youtube: {
+                  playerVars: {
+                    disablekb: 1,
+                    fs: 0,
+                    iv_load_policy: 3,
+                    playlist: `${this.state.movieTrailer}`,
+                    modestbranding: 1,
+                  },
+                },
+              }}
+          />  
+        </section>
       )
     }
   }

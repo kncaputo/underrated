@@ -3,6 +3,9 @@ header {
   justify-content: space-between;
   background-color: black;
   color: white;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
 }
 
 body {

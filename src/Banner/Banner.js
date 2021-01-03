@@ -26,7 +26,7 @@ class Banner extends Component {
 
     if (trailerDisplay) {
       return(
-        <section className="player-wrapper">
+        <div className="player-wrapper">
           <ReactPlayer 
               key={trailerDisplay.id}
               url={`https://www.youtube.com/watch?v=${trailerDisplay.key}`}
@@ -43,13 +43,12 @@ class Banner extends Component {
                     disablekb: 1,
                     fs: 0,
                     iv_load_policy: 3,
-                    playlist: `${this.state.movieTrailer}`,
                     modestbranding: 1,
                   },
                 },
               }}
           />  
-        </section>
+        </div>
       )
     }
   }

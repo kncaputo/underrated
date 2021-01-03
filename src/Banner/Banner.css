@@ -3,7 +3,12 @@
   top: 0;
   left: 0;
   object-fit: cover;
-  z-index: 0;
+  z-index: 5;
+  padding-top: 7em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 .player-cover {

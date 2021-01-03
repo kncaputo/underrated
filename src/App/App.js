@@ -116,7 +116,8 @@ class App extends Component {
                 <section className="genre-filter">
                   <p className="genre-showing">showing <span className="genre-text">{this.state.dropdownValue}</span> movies</p>
                   <DropdownButton
-                    title=''>
+                    title=''
+                    className='genre-dropdown'>
                     <button onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
                     <button name="Action" onClick={(event) => this.handleDropdownValue(event)}>action</button>
                     <button name="Adventure" onClick={(event) => this.handleDropdownValue(event)}>adventure</button>

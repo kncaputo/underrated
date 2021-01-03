@@ -89,6 +89,10 @@ a:hover {
   padding: none;
 }
 
+button {
+  border: none;
+}
+
 @media only screen and (max-width: 539px) {
   header {
     display: flex;

@@ -2,7 +2,7 @@ export const user = {"user": {"id": 1, name: "Alan", email: "alan@turing.io"}};
 
 export const singleMovie = {
   'movie': {
-    'id': 718444,
+    'id': 531876,
     'title':'Rogue',
     'poster_path': 'https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg',
     'backdrop_path': 'https://image.tmdb.org/t/p/original//x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg',

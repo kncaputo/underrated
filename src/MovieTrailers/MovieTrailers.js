@@ -32,6 +32,7 @@ class MovieTrailers extends Component {
         return (
           <ReactPlayer 
             key={trailer.id}
+            data-testid={trailer.id}
             url={`https://www.youtube.com/watch?v=${trailer.key}`}
           />  
         )  

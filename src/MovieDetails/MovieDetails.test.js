@@ -39,6 +39,7 @@ describe('MovieDetails', () => {
     const runtime = screen.getAllByText('106 mins')
     const tagline = screen.getByText('When the hunter becomes the prey.')
     const averageRating = screen.getByText('☆ 6.4')
+    const movieTrailerId = screen.getByTestId(289)
 
     expect(window.scrollTo).toBeCalledWith(0, 0)
     expect(title).toBeInTheDocument()
@@ -46,5 +47,6 @@ describe('MovieDetails', () => {
     expect(runtime).toHaveLength(2)
     expect(tagline).toBeInTheDocument()
     expect(averageRating).toBeInTheDocument()
+    expect(movieTrailerId).toBeInTheDocument()
   })
 })

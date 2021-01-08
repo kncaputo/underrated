@@ -10,6 +10,7 @@ After completing a simplified version of this project as part of Module 3 of the
 - React
 - React Router
 - Jest
+- Sass
 
 ## Setup
 Download Instructions 

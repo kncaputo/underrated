@@ -6,7 +6,7 @@ This movie database app allows users to view movies details, trailers, and avera
 
 After completing a simplified version of this project as part of Module 3 of the Turing School of Software and Design's Front-End Engineering Program, we decided to rebuild the app with dramatically increased functionality, improved UX, and a fully responsive UI. 
 
-## Technologies Used
+## Tech Used
 - React
 - React Router
 - Jest

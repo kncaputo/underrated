@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/underrated/static/css/main.9649a20c.chunk.css",
+    "main.js": "/underrated/static/js/main.fdaefc87.chunk.js",
+    "main.js.map": "/underrated/static/js/main.fdaefc87.chunk.js.map",
+    "runtime-main.js": "/underrated/static/js/runtime-main.7d3569ec.js",
+    "runtime-main.js.map": "/underrated/static/js/runtime-main.7d3569ec.js.map",
+    "static/css/2.bef983ce.chunk.css": "/underrated/static/css/2.bef983ce.chunk.css",
+    "static/js/2.c1686ddc.chunk.js": "/underrated/static/js/2.c1686ddc.chunk.js",
+    "static/js/2.c1686ddc.chunk.js.map": "/underrated/static/js/2.c1686ddc.chunk.js.map",
+    "index.html": "/underrated/index.html",
+    "static/css/2.bef983ce.chunk.css.map": "/underrated/static/css/2.bef983ce.chunk.css.map",
+    "static/css/main.9649a20c.chunk.css.map": "/underrated/static/css/main.9649a20c.chunk.css.map",
+    "static/js/2.c1686ddc.chunk.js.LICENSE.txt": "/underrated/static/js/2.c1686ddc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7d3569ec.js",
+    "static/css/2.bef983ce.chunk.css",
+    "static/js/2.c1686ddc.chunk.js",
+    "static/css/main.9649a20c.chunk.css",
+    "static/js/main.fdaefc87.chunk.js"
+  ]
+}

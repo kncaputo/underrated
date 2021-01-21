@@ -5,7 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Search from '../Search/Search';
 import Banner from '../Banner/Banner';
 import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Link } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.css';
 
@@ -98,9 +98,11 @@ class App extends Component {
     return(
       <main>
         <header>
-          <h1 className='page-title'>underrated</h1>
+          <Link to='/'>
+            <h1 className='page-title'>underrated</h1>
+          </Link>
           <nav>
-            <NavLink exact to="/" className='nav-labels'>
+            <NavLink exact to='/' className='nav-labels'>
               all movies
             </NavLink>
             <p className='nav-labels'>watchlist</p>

@@ -1,19 +1,21 @@
+@import '../scss/variables';
+
 body {
-  color: white;
-  background-color: black;
+  color: $font-color;
+  background-color: $background-color;
 }
 
 a {
-  color: white;
+  color: $font-color;
   text-decoration: none;
 }
 
 a:hover {
-  color: darkgray;
+  color: $hover-color;
 }
 
 .active:hover {
-  color: white;
+  color: $font-color;
   text-decoration: underline;
   cursor: default;
 }
@@ -26,29 +28,24 @@ a:hover {
   padding-bottom: 0;
   margin-bottom: -0.1em;
   padding-left: 0;
-  background-color: black;
-  border-color: black;
+  background-color: $background-color;
+  border-color: $background-color;
 }
 
 .btn-primary:hover {
   cursor: pointer;
-  padding-bottom: 0;
-  margin-bottom: -0.1em;
-  padding-left: 0;
-  background-color: black;
-  border-color: black;
 }
 
 .show>.btn-primary.dropdown-toggle {
   padding-bottom: 0;
   margin-bottom: -0.1em;
   padding-left: 0;
-  background-color: black;
-  border-color: black;
+  background-color: $background-color;
+  border-color: $background-color;
 }
 
 .dropdown-toggle:focus {
-  box-shadow: 0em black;
+  box-shadow: 0em $background-color;
 }
 
 .genre-filter {
@@ -76,10 +73,10 @@ button {
 
 .clear {
   height: 2em;
-  border: solid white 0.1em;
+  border: solid $font-color 0.1em;
   border-radius: 1em;
-  color: white;
-  background-color: black;
+  color: $font-color;
+  background-color: $background-color;
   font-size: 0.8em;
   outline: none;
 }

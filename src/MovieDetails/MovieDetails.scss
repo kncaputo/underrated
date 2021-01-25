@@ -1,3 +1,6 @@
+@import '../scss/variables';
+@import '../scss/mixins';
+
 .banner-container {
   display: flex;
   position: relative;
@@ -106,15 +109,7 @@
 }
 
 .add-watchlist-button {
-  height: 2em;
-  margin: 2.3em 0em 0em 2em;
-  border: solid white 0.1em;
-  border-radius: 1em;
-  color: white;
-  background-color: black;
-  font-size: 0.8em;
-  outline: none;
-  min-width: 10.417em;
+  @include watchlist-button($font-color, $background-color);
 }
 
 .add-watchlist-button:hover {
@@ -124,13 +119,7 @@
 }
 
 .on-watchlist-button {
-  height: 2em;
-  margin: 2.3em 0em 0em 2em;
-  border: solid black 0.1em;
-  border-radius: 1em;
-  color: black;
-  background-color: white;
-  font-size: 0.8em;
+  @include watchlist-button($background-color, $font-color)
 }
 
 .responsive-genre-list {

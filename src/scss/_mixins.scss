@@ -1,6 +1,6 @@
-@mixin watchlist-button($color, $secColor) {
+@mixin watchlist-button($color, $secColor, $margTop) {
   height: 2em;
-  margin: 2.3em 0em 0em 2em;
+  margin: $margTop 0em 0em 2em;
   border: solid $color 0.1em;
   color: $color;
   background-color: $secColor;

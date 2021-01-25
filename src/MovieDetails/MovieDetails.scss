@@ -109,7 +109,7 @@
 }
 
 .add-watchlist-button {
-  @include watchlist-button($font-color, $background-color);
+  @include watchlist-button($font-color, $background-color, 2.3em);
 }
 
 .add-watchlist-button:hover {
@@ -119,7 +119,7 @@
 }
 
 .on-watchlist-button {
-  @include watchlist-button($background-color, $font-color)
+  @include watchlist-button($background-color, $font-color, 2.3em)
 }
 
 .responsive-genre-list {

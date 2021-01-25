@@ -42,26 +42,27 @@ class Login extends Component {
 
   render() {
     return(
-      <section>
+      <section id='login-main'>
         <input
-          name="email"
-          type="text"
-          placeholder="Email"
+          name='email'
+          type='text'
+          placeholder='Email'
+          className='login-input'
           value={this.state.email}
           onClick={(event) => this.handleClick(event)}
           onChange={(event) => this.handleChange(event)}
         />
         <input
-          name="password"
-          type="password"
-          placeholder="Password"
+          name='password'
+          type='password'
+          placeholder='Password'
           value={this.state.password}
           onClick={(event) => this.handleClick(event)}
           onChange={(event) => this.handleChange(event)}
         />
         {this.determineError()}
         <button 
-          className="submit-button" 
+          id='submit-button' 
           onClick={this.submitLogin}>
           SUBMIT
         </button>

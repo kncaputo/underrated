@@ -146,7 +146,7 @@ class App extends Component {
                     className='rating-dropdown'>
                     {this.generateRatingsButtons()}
                   </DropdownButton>
-                  {this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any' &&
+                  {(this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any') &&
                     <button className='clear' onClick={() => this.clearFilters()}>clear</button>
                   }
                 </section>

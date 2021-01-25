@@ -83,16 +83,17 @@ button {
 }
 
 .dropdown-menu.show {
-  background-color: #0c0c0cb0;
+  background-color: $background-color;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
-  max-height: 200px;
+  flex-wrap: wrap;
+  max-height: 18em;
+  width: 14em;
 }
 
 .dropdown-filter {
   margin: .25em;
-  background-color:  #0c0c0cb0;
+  background-color: #0c0c0cb0;
   color: white;
 }
 

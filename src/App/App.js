@@ -147,7 +147,7 @@ class App extends Component {
         </header>
         <Route 
           exact 
-          path="/" 
+          path='/' 
           render={() => {
             return (
               <section>
@@ -155,22 +155,22 @@ class App extends Component {
                 <Search 
                   getUserInput={this.getUserInput} 
                 />
-                <section className="genre-filter">
-                  <p className="dropdown-text">showing <span className="active-text">{this.state.dropdownValue}</span> movies</p>
+                <section className='genre-filter'>
+                  <p className='dropdown-text'>showing <span className='active-text'>{this.state.dropdownValue}</span> movies</p>
                   <DropdownButton
                     title=''
                     className='genre-dropdown'>
                     <button onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
                     {this.generateGenreButtons()}
                   </DropdownButton>
-                  <p className="dropdown-text">with <span className="active-text">{this.state.ratingValue}</span> rating</p>
+                  <p className='dropdown-text'>with <span className='active-text'>{this.state.ratingValue}</span> rating</p>
                   <DropdownButton
                     title=''
                     className='rating-dropdown'>
                     {this.generateRatingsButtons()}
                   </DropdownButton>
                   {this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any' &&
-                    <button className="clear" onClick={() => this.clearFilters()}>clear</button>
+                    <button className='clear' onClick={() => this.clearFilters()}>clear</button>
                   }
                 </section>
                 <MovieGrid
@@ -182,7 +182,7 @@ class App extends Component {
         />
         <Route 
           exact
-          path="/movie/:id"
+          path='/movie/:id'
           render={( { match }) => {
             return (
               <MovieDetails 
@@ -191,6 +191,11 @@ class App extends Component {
              />)
           }}
         />
+        <Route
+          exact
+          path='/watchlist'
+          component={Watchlist}
+        />  
       </main>
     ) 
   }

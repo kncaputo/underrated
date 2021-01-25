@@ -32,8 +32,8 @@ const Header = (props) => {
             }
             {currentUser &&
               <section>
-                <p>Hello, {currentUser.name}!</p>
-                <button onClick={signOut}>Sign Out</button>
+                <p id='user-message'>Hello, {currentUser.name}!</p>
+                <button id='sign-out' onClick={signOut}>Sign Out</button>
               </section>     
             }
         </DropdownButton>

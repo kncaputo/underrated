@@ -87,7 +87,7 @@ button {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  max-height: 18em;
+  height: 18em;
   width: 14em;
 }
 
@@ -95,8 +95,23 @@ button {
   margin: .25em;
   background-color: #0c0c0cb0;
   color: white;
+  width: 6.21em;
 }
 
 #blockColorblindContent { 
   display: none; 
+}
+
+@media only screen and (max-width: 540px) {
+  .dropdown-menu.show {
+    height: 22em;
+  }
+
+  .dropdown-text {
+    font-size: large;
+  }
+
+  .player-wrapper {
+    display: none;
+  }
 }

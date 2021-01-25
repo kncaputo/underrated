@@ -37,7 +37,10 @@
 
 .poster-rating-mini {
   display: none;
-  padding-left: .75em;
+  text-align: center;
+  padding-bottom: 1em;
+  margin-top: 0;
+  font-size: small;
 }
 
 a {
@@ -53,7 +56,6 @@ a:hover {
     height: 3.75em;
     padding-left: .75em;
     margin: 0;
-
   }
   
   .poster-rating {
@@ -76,6 +78,7 @@ a:hover {
 
 @media only screen and (max-width: 540px) {
   .poster-title {
+    font-size: small;
     height: 3.75em;
     padding-left: .75em;
     margin: 0.3em;
@@ -87,7 +90,6 @@ a:hover {
 
   .poster-rating-mini {
     display: block;
-    margin-top: 0;
   }
 }
 

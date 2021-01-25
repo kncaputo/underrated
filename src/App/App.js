@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -115,7 +116,14 @@ class App extends Component {
   render() {
     return(
       <main>
-        <header>
+        <Header 
+          currentUser={this.state.currentUser}
+          validateLogin={this.validateLogin}
+          error={this.state.error}
+          clearError={this.clearError}
+          signOut={this.signOut}
+        />
+        {/* <header>
           <Link to='/'>
             <h1 className='page-title'>underrated</h1>
           </Link>
@@ -144,7 +152,7 @@ class App extends Component {
                 }
             </DropdownButton>
           </nav>
-        </header>
+        </header> */}
         <Route 
           exact 
           path='/' 

@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
-import Login from '../Login/Login';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Search from '../Search/Search';
 import Banner from '../Banner/Banner';
 import Watchlist from '../Watchlist/Watchlist';
 import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.css';
 

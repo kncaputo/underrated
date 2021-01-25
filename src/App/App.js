@@ -4,6 +4,7 @@ import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Search from '../Search/Search';
 import Banner from '../Banner/Banner';
+import Watchlist from '../Watchlist/Watchlist';
 import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
 import { Route, NavLink, Link } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -122,7 +123,9 @@ class App extends Component {
             <NavLink exact to='/' className='nav-labels'>
               all movies
             </NavLink>
-            <p className='nav-labels'>watchlist</p>
+            <NavLink exact to='/watchlist' className='nav-labels'>
+              watchlist
+            </NavLink>
             <DropdownButton 
               className='nav-labels' 
               title='account'>

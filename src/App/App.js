@@ -122,36 +122,6 @@ class App extends Component {
           clearError={this.clearError}
           signOut={this.signOut}
         />
-        {/* <header>
-          <Link to='/'>
-            <h1 className='page-title'>underrated</h1>
-          </Link>
-          <nav>
-            <NavLink exact to='/' className='nav-labels'>
-              all movies
-            </NavLink>
-            <NavLink exact to='/watchlist' className='nav-labels'>
-              watchlist
-            </NavLink>
-            <DropdownButton 
-              className='nav-labels' 
-              title='account'>
-                {!this.state.currentUser &&
-                  <Login 
-                    validateLogin={this.validateLogin} 
-                    error={this.state.error} 
-                    clearError={this.clearError}
-                  />
-                }
-                {this.state.currentUser &&
-                  <section>
-                    <p>Hello, {this.state.currentUser.name}!</p>
-                    <button onClick={this.signOut}>Sign Out</button>
-                  </section>     
-                }
-            </DropdownButton>
-          </nav>
-        </header> */}
         <Route 
           exact 
           path='/' 

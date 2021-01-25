@@ -114,6 +114,7 @@
   background-color: black;
   font-size: 0.8em;
   outline: none;
+  min-width: 10.417em;
 }
 
 .add-watchlist-button:hover {

@@ -52,7 +52,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5em;
+  margin: 0.9em 0 0.75em 0;
 }
 
 .active-text {
@@ -61,6 +61,7 @@ a:hover {
 
 .dropdown-text {
   margin-bottom: 0;
+  font-size: x-large;
 }
 
 .btn {
@@ -79,6 +80,20 @@ button {
   background-color: $background-color;
   font-size: 0.8em;
   outline: none;
+}
+
+.dropdown-menu.show {
+  background-color: #0c0c0cb0;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-height: 200px;
+}
+
+.dropdown-filter {
+  margin: .25em;
+  background-color:  #0c0c0cb0;
+  color: white;
 }
 
 #blockColorblindContent { 

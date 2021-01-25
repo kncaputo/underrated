@@ -21,15 +21,18 @@
   height: 3.75em;
   display: flex;
   align-items: center;
-  padding-left: .75em;
+  padding: 0 0 0 .75em;
   font-size: 1.3em;
-  margin: 0em;
+  text-align: center;
+  justify-content: center;
 }
 
 .poster-rating {
+  padding-bottom: 1em;
   padding-left: .75em;
   margin-top: 0em;
-  font-size: 0.9em;
+  font-size: 1.15em;
+  text-align: center;
 }
 
 .poster-rating-mini {

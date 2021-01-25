@@ -96,10 +96,10 @@ class App extends Component {
   }
 
   generateGenreButtons = () => {
-    const genres = ['Adventure', 'Animation', 'Comdey', 'Crime', 'Drama', 'Family', 'Fantasy', 'History', 'Horror', 'Music', 'Romance', 'Science', 'Thriller', 'War', 'Western'];
+    const genres = ['Adventure', 'Animation', 'Comedy', 'Crime', 'Drama', 'Family', 'Fantasy', 'History', 'Horror', 'Music', 'Romance', 'Science', 'Thriller', 'War', 'Western'];
     
     return genres.map(genre => {
-      return <button name={genre} onClick={(event) => this.handleDropdownValue(event)}>{genre.toLowerCase()}</button>
+      return <button name={genre} className='dropdown-filter' onClick={(event) => this.handleDropdownValue(event)}>{genre.toLowerCase()}</button>
     })
   }
 
@@ -108,7 +108,7 @@ class App extends Component {
     {name: 'six', value: 6}, {name: 'seven', value: 7}, {name: 'eight', value: 8}, {name: 'nine', value: 9}, {name: 'ten', value: 10}];
     
     return ratings.map(rating => {
-      return  <button name={rating.name} value={rating.value} onClick={(event) => this.handleRatingValue(event)}>{rating.name}</button>
+      return  <button name={rating.name} value={rating.value} className='dropdown-filter' onClick={(event) => this.handleRatingValue(event)}>{rating.name}</button>
     })
   }
 
@@ -137,7 +137,7 @@ class App extends Component {
                   <DropdownButton
                     title=''
                     className='genre-dropdown'>
-                    <button onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
+                    <button className='dropdown-filter' onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
                     {this.generateGenreButtons()}
                   </DropdownButton>
                   <p className='dropdown-text'>with <span className='active-text'>{this.state.ratingValue}</span> rating</p>

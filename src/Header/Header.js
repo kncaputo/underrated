@@ -6,7 +6,7 @@ import './Header.scss';
 
 const Header = (props) => {
   const { currentUser, validateLogin, error, clearError, signOut } = props;
-
+  
   return(
     <header>
       <Link to='/'>
@@ -21,7 +21,8 @@ const Header = (props) => {
         </NavLink>
         <DropdownButton 
           className='nav-labels' 
-          title='account'>
+          title='account'
+          size='lg'>
             {!currentUser &&
               <Login 
                 validateLogin={validateLogin} 

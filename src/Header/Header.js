@@ -2,7 +2,7 @@ import React from 'react';
 import Login from '../Login/Login';
 import { Link, NavLink } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import './Header.css';
+import './Header.scss';
 
 const Header = (props) => {
   const { currentUser, validateLogin, error, clearError, signOut } = props;

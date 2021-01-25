@@ -8,7 +8,7 @@ import Watchlist from '../Watchlist/Watchlist';
 import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
 import { Route } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   constructor() {

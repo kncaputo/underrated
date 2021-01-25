@@ -1,5 +1,5 @@
 import React from 'react';
-import './Watchlist.css';
+import './Watchlist.scss';
 
 const Watchlist = () => {
   return(

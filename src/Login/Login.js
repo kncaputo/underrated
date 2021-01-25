@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Login.css';
+import './Login.scss';
 
 class Login extends Component {
   constructor() {

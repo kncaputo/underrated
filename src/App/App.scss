@@ -51,14 +51,9 @@ a:hover {
   margin: 0.9em 0 0.75em 0;
 }
 
-.active-text {
-  text-decoration: underline;
-}
-
-.dropdown-text {
-  margin-bottom: 0;
-  font-size: x-large;
-}
+// .active-text {
+//   text-decoration: underline;
+// }
 
 .btn {
   padding: none;
@@ -92,6 +87,19 @@ button {
   background-color: #0c0c0cb0;
   color: white;
   width: 6.21em;
+}
+
+.filter-title-box {
+  margin: 0 1.5em;
+}
+
+#filter-title-l {
+  margin-right: 0 5px;
+  font-size: x-large;
+}
+
+#filter-title-r {
+  @extend #filter-title-l;
 }
 
 #blockColorblindContent { 

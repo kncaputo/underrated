@@ -112,6 +112,33 @@ class App extends Component {
     })
   }
 
+  generateFilterDropdown = () => {
+    return(
+      <section className='genre-filter'>
+        <section className='filter-title-box'>
+          <DropdownButton
+            title={`showing ${this.state.dropdownValue.toUpperCase()} movies`}
+            className='genre-dropdown'
+            id='filter-title-l'>
+            <button className='dropdown-filter' onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
+            {this.generateGenreButtons()}
+          </DropdownButton>
+        </section>
+        <section className='filter-title-box'>
+          <DropdownButton
+            title={`with ${this.state.ratingValue.toUpperCase()} rating`}
+            className='rating-dropdown'
+            id='filter-title-r'>
+            {this.generateRatingsButtons()}
+          </DropdownButton>
+        </section>
+        {(this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any') &&
+          <button className='clear' onClick={() => this.clearFilters()}>clear</button>
+        }
+      </section>
+    )
+  }
+
   render() {
     return(
       <main>
@@ -133,11 +160,13 @@ class App extends Component {
                   getUserInput={this.getUserInput} 
                   input={this.state.input}
                 />
-                <section className='genre-filter'>
+                {this.generateFilterDropdown()}
+                {/* <section className='genre-filter'>
                   <p className='dropdown-text'>showing <span className='active-text'>{this.state.dropdownValue}</span> movies</p>
                   <DropdownButton
                     title=''
-                    className='genre-dropdown'>
+                    className='genre-dropdown'
+                    id='dropdown-left'>
                     <button className='dropdown-filter' onClick={() => this.setState({ dropdownValue: 'all' })}>all</button>
                     {this.generateGenreButtons()}
                   </DropdownButton>
@@ -150,7 +179,7 @@ class App extends Component {
                   {(this.state.input !== '' || this.state.dropdownValue !== 'all' || this.state.ratingValue !== 'any') &&
                     <button className='clear' onClick={() => this.clearFilters()}>clear</button>
                   }
-                </section>
+                </section> */}
                 <MovieGrid
                   movies={this.filterMoviesBySelection}  
                 />

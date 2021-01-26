@@ -3,7 +3,7 @@ import { fetchSingleMovie, fetchUserRatings, postUserRating, deleteUserRating } 
 import ListItem from "../ListItem/ListItem";
 import MovieTrailers from "../MovieTrailers/MovieTrailers";
 import StarRating from "../StarRating/StarRating";
-import "./MovieDetails.css";
+import "./MovieDetails.scss";
 
 class MovieDetails extends Component {
   constructor() {

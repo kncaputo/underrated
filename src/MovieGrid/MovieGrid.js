@@ -1,6 +1,6 @@
 import React from 'react';
 import Poster from '../Poster/Poster';
-import './MovieGrid.css';
+import './MovieGrid.scss';
 
 const MovieGrid = ({ movies, getSingleMovie }) => {
   const posters = movies.map(movie => {

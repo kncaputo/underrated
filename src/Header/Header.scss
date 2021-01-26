@@ -1,0 +1,53 @@
+@import '../scss/mixins'; 
+@import '../scss/variables'; 
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+}
+
+.page-title {
+  margin: .75em .75em 0 .75em;
+}
+
+nav {
+  display: flex;
+  align-items: flex-end;
+}
+
+.nav-labels {
+  margin: .75em .75em 0.2em .75em;
+  font-size: 1.25em;
+}
+
+#user-message {
+  text-align: center;
+  color: $font-color;
+  margin-top: 2em;
+}
+
+#sign-out {
+  @include watchlist-button($font-color, $background-color, 2em);
+  margin: 3em 3.5em;
+  align-self: center;
+}
+
+@media only screen and (max-width: 539px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    margin-left: .75em;
+  }
+
+  .nav-labels {
+    font-size: 1.2em;
+  }
+}

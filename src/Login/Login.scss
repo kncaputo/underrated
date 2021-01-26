@@ -1,0 +1,18 @@
+@import '../scss/mixins';
+@import '../scss/variables';
+
+#login-main {
+  margin: 1em;
+}
+
+#submit-button {
+  @include watchlist-button ($font-color, $background-color, 1em);
+}
+
+#submit-button:hover {
+  @include watchlist-button ($background-color, $font-color, 1em);
+}
+
+.login-input {
+  margin-bottom: .75em;
+}

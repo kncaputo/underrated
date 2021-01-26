@@ -131,6 +131,7 @@ class App extends Component {
                 <Banner />
                 <Search 
                   getUserInput={this.getUserInput} 
+                  input={this.state.input}
                 />
                 <section className='genre-filter'>
                   <p className='dropdown-text'>showing <span className='active-text'>{this.state.dropdownValue}</span> movies</p>

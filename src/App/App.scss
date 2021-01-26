@@ -94,7 +94,7 @@ button {
 }
 
 #filter-title-l {
-  margin-right: 0 5px;
+  margin: 0 5px;
   font-size: x-large;
 }
 
@@ -117,5 +117,19 @@ button {
 
   .player-wrapper {
     display: none;
+  }
+
+  .filter-title-box {
+    margin: 0 1em;
+  }
+
+  #filter-title-l {
+    font-size: small;
+    margin: 0;
+  }
+
+  #filter-title-r {
+    font-size: small;
+    margin: 0;
   }
 }

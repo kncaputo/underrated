@@ -25,7 +25,7 @@ To view the test suite:
 - Run `npm test` in your terminal
 
 ## Working Application
-![Browser Demo](./src/assets/browser-demo.gif)
+![Browser Demo](https://media.giphy.com/media/N1KmkNxnb2Wad7Jn9s/giphy.gif)
 
 ## Links and Deployed Site
 - [Deployed Site](https://kncaputo.github.io/underrated/)

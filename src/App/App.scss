@@ -1,0 +1,135 @@
+@import '../scss/variables';
+
+body {
+  color: $font-color;
+  background-color: $background-color;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $hover-color;
+}
+
+.active:hover {
+  color: $font-color;
+  text-decoration: underline;
+  cursor: default;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  padding-bottom: 0;
+  margin-bottom: -0.1em;
+  padding-left: 0;
+  background-color: $background-color;
+  border-color: $background-color;
+}
+
+.btn-primary:hover {
+  cursor: pointer;
+}
+
+.show>.btn-primary.dropdown-toggle {
+  padding-bottom: 0;
+  margin-bottom: -0.1em;
+  padding-left: 0;
+  background-color: $background-color;
+  border-color: $background-color;
+}
+
+.genre-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.9em 0 0.75em 0;
+}
+
+// .active-text {
+//   text-decoration: underline;
+// }
+
+.btn {
+  padding: none;
+}
+
+button {
+  border: none;
+}
+
+.clear {
+  height: 2em;
+  border: solid $font-color 0.1em;
+  border-radius: 1em;
+  color: $font-color;
+  background-color: $background-color;
+  font-size: 0.8em;
+  outline: none;
+}
+
+.dropdown-menu.show {
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 18.2em;
+  width: 14em;
+}
+
+.dropdown-filter {
+  margin: .25em;
+  background-color: #0c0c0cb0;
+  color: white;
+  width: 6.21em;
+}
+
+.filter-title-box {
+  margin: 0 1.5em;
+}
+
+#filter-title-l {
+  margin: 0 5px;
+  font-size: x-large;
+}
+
+#filter-title-r {
+  @extend #filter-title-l;
+}
+
+#blockColorblindContent { 
+  display: none; 
+}
+
+@media only screen and (max-width: 540px) {
+  .dropdown-menu.show {
+    height: 22em;
+  }
+
+  .dropdown-text {
+    font-size: large;
+  }
+
+  .player-wrapper {
+    display: none;
+  }
+
+  .filter-title-box {
+    margin: 0 1em;
+  }
+
+  #filter-title-l {
+    font-size: small;
+    margin: 0;
+  }
+
+  #filter-title-r {
+    font-size: small;
+    margin: 0;
+  }
+}

@@ -19,7 +19,7 @@ import { user } from '../testData';
 describe('MovieDetails', () => {
   beforeEach(() => {
     
-  }
+  })
 
   it('should render correctly', () => {
     render(
@@ -28,5 +28,7 @@ describe('MovieDetails', () => {
         currentUser={user.user}
       />
     )
+  
   })
+
 })

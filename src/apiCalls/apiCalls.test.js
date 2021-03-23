@@ -34,8 +34,13 @@ describe('fetch', () => {
     expect(fetch).toHaveBeenCalledWith(url);
   })
 
-  it('should fetchMovieTrailers', () => {
+  it('should be called with the correct argument when fetchMovieTrailers is called with an id', () => {
+    const url ='https://rancid-tomatillos.herokuapp.com/api/v2/movies/1/videos'
 
+    fetchMovieTrailers(1)
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(fetch).toHaveBeenCalledWith(url)
   })
 
   it('should be called with the correct argument and body when postLoginCredentials is called with login credentials', () => {

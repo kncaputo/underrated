@@ -50,7 +50,7 @@ export const trailers = {
   ]
 }
 
-export const mockMovies = [
+export const movies = [
   {
     average_rating: 6.142857142857143,
     backdrop_path: "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",

@@ -5,7 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 import Search from '../Search/Search';
 import Banner from '../Banner/Banner';
 import Watchlist from '../Watchlist/Watchlist';
-import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls';
+import { fetchMovies, fetchSingleMovie, postLoginCredentials } from '../apiCalls/apiCalls';
 import { Route } from 'react-router-dom';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import './App.scss';

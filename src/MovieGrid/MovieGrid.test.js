@@ -1,5 +1,5 @@
 import MovieGrid from './MovieGrid'
-import { mockMovies } from '../testData'
+import { movies } from '../testData'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
@@ -8,7 +8,7 @@ describe('MovieGrid', () => {
   render(
     <BrowserRouter>
       <MovieGrid
-        movies={mockMovies}
+        movies={movies}
       />
     </BrowserRouter>
   )

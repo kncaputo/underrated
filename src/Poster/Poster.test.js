@@ -1,6 +1,6 @@
 import { render } from 'react-dom'
 import Poster from './Poster'
-import { mockMovies } from '../testData'
+import { movies } from '../testData'
 import { BrowserRouter } from 'react-router-dom'
 import { act } from "react-dom/test-utils";
 
@@ -17,11 +17,11 @@ describe('Poster', () => {
         render(
           <BrowserRouter>
             <Poster
-              id={mockMovies[0].id}
-              title={mockMovies[0].title}
-              rating={mockMovies[0].average_rating}
-              image={mockMovies[0].poster_path}
-              key={mockMovies[0].id}
+              id={movies[0].id}
+              title={movies[0].title}
+              rating={movies[0].average_rating}
+              image={movies[0].poster_path}
+              key={movies[0].id}
             />  
           </BrowserRouter>, container
         ) 

@@ -17,7 +17,7 @@ describe('fetch', () => {
   afterEach(() => jest.restoreAllMocks());
 
   it('should be called with the correct argument when fetchMovies is called', () => {
-    const url = "https://rancid-tomatillos.herokuapp.com/api/v2/movies";
+    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
 
     fetchMovies();
 
@@ -26,7 +26,12 @@ describe('fetch', () => {
   })
 
   it('should be called with the correct argument when fetchSingleMovie is called with an id', () => {
-    
+    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/1';
+
+    fetchSingleMovie(1)
+
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(fetch).toHaveBeenCalledWith(url);
   })
 
   it('should fetchMovieTrailers', () => {

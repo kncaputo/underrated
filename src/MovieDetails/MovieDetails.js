@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchSingleMovie, fetchUserRatings, postUserRating, deleteUserRating } from "../apiCalls"; 
+import { fetchSingleMovie, fetchUserRatings, postUserRating, deleteUserRating } from "../apiCalls/apiCalls"; 
 import ListItem from "../ListItem/ListItem";
 import MovieTrailers from "../MovieTrailers/MovieTrailers";
 import StarRating from "../StarRating/StarRating";
@@ -18,6 +18,7 @@ class MovieDetails extends Component {
   
   componentDidMount() {
     window.scrollTo(0, 0)
+
     fetchSingleMovie(this.props.id)
     .then(singleMovie => this.setState({ singleMovie: singleMovie.movie }))
     .then(() => this.getUserRatings())
@@ -26,6 +27,7 @@ class MovieDetails extends Component {
 
   componentDidUpdate(prevProps) {
     window.scrollTo(0, 0)
+
     if(prevProps.currentUser !== this.props.currentUser) {
       this.setState({ currentUserRating: null, error: "" })
       this.getUserRatings()
@@ -41,7 +43,6 @@ class MovieDetails extends Component {
       userId = this.props.currentUser.id
 
       deleteUserRating(userId, ratingId)
-      .then(response => console.log('delete response', response))
       .catch(error => this.setState({ error: error.message }))
 
       this.createNewRating(userId, rating)
@@ -59,8 +60,6 @@ class MovieDetails extends Component {
       rating: +rating
     }
     
-    console.log('newRating obj', newRating)
-    
     postUserRating(userId, newRating)
     .then(() => this.updateUserRating())
     .catch(error => this.setState({ error: error.message }))
@@ -77,11 +76,9 @@ class MovieDetails extends Component {
   updateUserRating = () => {
     fetchUserRatings(this.props.currentUser.id)
     .then(ratings => { 
-      console.log('allratings', ratings)
       const userRating = ratings.ratings.find(rating => {
         return rating.movie_id === this.state.singleMovie.id
       })
-      console.log('userRating', userRating)
       this.setState({ currentUserRating: userRating })
     })
     .catch(error => this.setState({ error: error.message}))  
@@ -136,7 +133,6 @@ class MovieDetails extends Component {
       this.setState({ onWatchlist: false})
     }
   }
-
 
   render() {
     return(

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchMovieTrailers } from '../apiCalls';
+import { fetchMovieTrailers } from '../apiCalls/apiCalls';
 import ReactPlayer from 'react-player/youtube';
 import './Banner.scss';
 

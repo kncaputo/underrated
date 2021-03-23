@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { fetchMovieTrailers } from '../apiCalls';
+import { fetchMovieTrailers } from '../apiCalls/apiCalls';
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player';
-import "react-responsive-carousel/lib/styles/carousel.min.css"
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './MovieTrailers.scss';
 
 class MovieTrailers extends Component {
@@ -32,6 +32,7 @@ class MovieTrailers extends Component {
         return (
           <ReactPlayer 
             key={trailer.id}
+            data-testid={trailer.id}
             url={`https://www.youtube.com/watch?v=${trailer.key}`}
           />  
         )  

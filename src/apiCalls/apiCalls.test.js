@@ -64,4 +64,18 @@ describe('fetch', () => {
     expect(fetch).toHaveBeenCalledTimes(1)
     expect(fetch).toHaveBeenLastCalledWith(url)
   })
+
+  it('should be called with the corret arguments when postUserRating is called with an id and a rating', () => {
+    const rating = 5.5
+    const bodyHeadersMethod = {
+      body: JSON.stringify(rating),
+      headers: type, method: 'POST'
+    }
+    const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/users/1/ratings'
+
+    postUserRating(1, rating)
+
+    expect(fetch).toHaveBeenCalledTimes(1)
+    expect(fetch).toHaveBeenLastCalledWith(url, bodyHeadersMethod)
+  })
 })

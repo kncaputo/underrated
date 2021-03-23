@@ -1,4 +1,15 @@
-export const user = {"user": {"id": 1, name: "Alan", email: "alan@turing.io"}};
+export const user = {
+  "user": {
+    "id": 1, 
+    name: "Alan", 
+    email: "alan@turing.io"
+  }
+};
+
+export const loginCredentials = {
+  email: 'alyssa@underratedAdmin.io',
+  password: 'pword'
+}
 
 export const singleMovie = {
   'movie': {

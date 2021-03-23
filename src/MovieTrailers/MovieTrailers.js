@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchMovieTrailers } from '../apiCalls';
+import { fetchMovieTrailers } from '../apiCalls/apiCalls';
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';

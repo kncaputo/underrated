@@ -1,23 +1,13 @@
 const endpoint = `https://rancid-tomatillos.herokuapp.com/api/v2`;
 
 export const fetchMovies = () => {
-  return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-  .then((response) => {
-    if(!response.ok) {
-      throw Error('Sorry! We\'ve encountered an error')
-    }
-    return response.json()
-  })
+  return fetch(`${endpoint}/movies`)
+  .then((response) => response.json())
 }
 
 export const fetchSingleMovie = (id) => {
-  return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${+id}`)
-  .then((response) => {
-    if(!response.ok) {
-      throw Error('Sorry! We\'ve encountered an error')
-    }
-    return response.json()
-  })
+  return fetch(`${endpoint}/movies/${+id}`)
+  .then((response) => response.json())
 }
 
 export const fetchMovieTrailers = (id) => {
@@ -33,22 +23,12 @@ export const postLoginCredentials = (loginCredentials) => {
     }, 
     body: JSON.stringify(loginCredentials)
   })
-    .then((response) => {
-      if (!response.ok) {
-        throw Error('Username and/or password is incorrect. Please try again.')
-      }
-      return response.json()
-    })
+  .then((response) => response.json())
 }
 
 export const fetchUserRatings = (id) => {
   return fetch(`${endpoint}/users/${+id}/ratings`)
-  .then((response) => {
-    if (!response.ok) {
-      throw Error('Sorry! We couldn\'t retrieve your rating.')
-    }
-    return response.json()
-  })
+  .then((response) => response.json())
 }
 
 export const postUserRating = (id, rating) => {
@@ -59,12 +39,7 @@ export const postUserRating = (id, rating) => {
     }, 
     body: JSON.stringify(rating)
   })
-  .then((response) => {
-    if (!response.ok) {
-      throw Error
-    }
-    return response.json()
-  })
+  .then((response) => response.json())
 }
 
 export const deleteUserRating = (id, ratingId) => {
@@ -74,10 +49,5 @@ export const deleteUserRating = (id, ratingId) => {
       'Content-Type': 'application/json'
     },
   })
-  .then((response) => {
-    if (!response.ok) {
-      throw Error('Sorry! We couldn\'t retrieve your rating.')
-    }
-    return response.json()
-  })
+  .then((response) => response.json())
 }

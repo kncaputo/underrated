@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { fetchMovieTrailers } from '../apiCalls';
+import { fetchMovieTrailers } from '../apiCalls/apiCalls';
 import ReactPlayer from 'react-player/youtube';
-import './Banner.css';
+import './Banner.scss';
 
 class Banner extends Component {
   constructor() {

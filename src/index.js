@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
-import './index.css';
+import './index.scss';
 import App from './App/App';
 
-const router = <BrowserRouter><App /></BrowserRouter>
+const router = <BrowserRouter basename='/underrated'><App /></BrowserRouter>
 
 ReactDOM.render(
  router,

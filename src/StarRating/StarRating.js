@@ -1,5 +1,5 @@
-import ReactStars from "react-rating-stars-component";
-import React, { Component } from "react";
+import ReactStars from 'react-rating-stars-component';
+import React, { Component } from 'react';
 
 class StarRating extends Component { 
   constructor() {

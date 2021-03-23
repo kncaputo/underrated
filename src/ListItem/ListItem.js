@@ -1,5 +1,5 @@
 import React from 'react';
-import './ListItem.css';
+import './ListItem.scss';
 
 const ListItem =  ({ label, body })  => {
 

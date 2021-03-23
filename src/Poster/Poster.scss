@@ -21,20 +21,26 @@
   height: 3.75em;
   display: flex;
   align-items: center;
-  padding-left: .75em;
+  padding: 0 0 0 .75em;
   font-size: 1.3em;
-  margin: 0em;
+  text-align: center;
+  justify-content: center;
 }
 
 .poster-rating {
+  padding-bottom: 1em;
   padding-left: .75em;
   margin-top: 0em;
-  font-size: 0.9em;
+  font-size: 1.15em;
+  text-align: center;
 }
 
 .poster-rating-mini {
   display: none;
-  padding-left: .75em;
+  text-align: center;
+  padding-bottom: 1em;
+  margin-top: 0;
+  font-size: small;
 }
 
 a {
@@ -50,7 +56,6 @@ a:hover {
     height: 3.75em;
     padding-left: .75em;
     margin: 0;
-
   }
   
   .poster-rating {
@@ -73,6 +78,7 @@ a:hover {
 
 @media only screen and (max-width: 540px) {
   .poster-title {
+    font-size: small;
     height: 3.75em;
     padding-left: .75em;
     margin: 0.3em;
@@ -84,7 +90,6 @@ a:hover {
 
   .poster-rating-mini {
     display: block;
-    margin-top: 0;
   }
 }
 

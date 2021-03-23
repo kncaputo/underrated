@@ -3,9 +3,9 @@ import MovieDetails from './MovieDetails';
 import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { user } from '../testData';
-import { fetchSingleMovie, fetchMovieTrailers } from '../apiCalls';
+import { fetchSingleMovie, fetchMovieTrailers } from '../apiCalls/apiCalls';
 import { singleMovie, trailers } from '../testData';
-jest.mock('../apiCalls');
+jest.mock('../apiCalls/apiCalls');
 
 // test that the moviedetails render
   // mock fetchSingleMovie (async)
@@ -31,6 +31,7 @@ describe('MovieDetails', () => {
         currentUser={user.user}
       />
     )
+  
   })
 
   it('should render correctly', () => {

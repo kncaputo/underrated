@@ -1,5 +1,5 @@
 # underrated
-A personal project by Alyssa Bull and Kara Caputo
+A personal project by Kara Caputo and Alyssa Bull
 
 ## Project Overview 
 This movie database app allows users to view movies details, trailers, and average ratings fetched from an API. Upon logging in, a user can rate movies as well. 
@@ -34,6 +34,6 @@ To view the test suite:
 - Project Repository: https://github.com/kncaputo/underrated
 
 ## Contributors:
-- Alyssa Bull - GitHub: https://github.com/alyssabull
 - Kara Caputo - GitHub: https://github.com/kncaputo
+- Alyssa Bull - GitHub: https://github.com/alyssabull
 - Lucy Conklin - Code Reviews

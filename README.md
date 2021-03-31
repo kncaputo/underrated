@@ -6,6 +6,8 @@ This movie database app allows users to view movies details, trailers, and avera
 
 After completing a simplified version of this project as part of Module 3 of the Turing School of Software and Design's Front-End Engineering Program, we decided to rebuild the app with dramatically increased functionality, improved UX, and a responsive UI. 
 
+- Lighthouse Accessibility Score: 91% for browser view / 100% for mobile view
+
 [View the deployed site](https://kncaputo.github.io/underrated/)
 
 ## Tech Used
